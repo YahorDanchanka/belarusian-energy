@@ -2,7 +2,7 @@
   <div class="info">
     <div class="text-center">
       <h2 class="info__title">
-        Дерево
+        {{ caption }}
         <img alt="Иконка" class="info__title-img" :src="titleIconUrl" />
       </h2>
     </div>
@@ -10,15 +10,13 @@
       <div class="info__icon">
         <img alt="Иконка" :src="iconUrl" />
       </div>
-      <div class="info__content">
-        <slot />
-      </div>
+      <div class="info__content" v-html="content"></div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-defineProps<{ iconUrl: string; titleIconUrl: string }>()
+defineProps<{ caption: string; iconUrl: string; titleIconUrl: string; content: string }>()
 </script>
 
 <style lang="sass" scoped>
