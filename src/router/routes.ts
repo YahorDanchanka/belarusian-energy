@@ -7,9 +7,9 @@ const routes: RouteRecordRaw[] = [
     children: [
       { name: 'resources', path: '', component: () => import('pages/ResourcePage.vue') },
       { name: 'stations', path: 'stations', component: () => import('pages/StationPage.vue') },
+      { name: 'map', path: 'map', component: () => import('pages/MapPage.vue') },
     ],
   },
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),

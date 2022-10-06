@@ -28,7 +28,7 @@ import BaseHeader from 'components/BaseHeader.vue'
 import BaseButton from 'components/BaseButton.vue'
 
 const menu = ref<Menu>([
-  { caption: 'Карта', to: '/404' },
+  { caption: 'Карта', to: { name: 'map' } },
   { caption: 'Тесты', to: '/404' },
 ])
 </script>

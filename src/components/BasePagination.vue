@@ -24,6 +24,18 @@ defineExpose({ paginationElem })
   padding: 8px 4px
   border-radius: 110px
 
+.pagination_horizontal
+  display: inline-flex
+  flex-wrap: wrap
+  padding: 4px 8px
+
+  .pagination__item
+    margin-bottom: 0
+    margin-right: 7px
+
+    &:last-child
+      margin-right: 0
+
 .pagination__item
   width: 50px
   height: 50px

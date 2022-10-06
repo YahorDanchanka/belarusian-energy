@@ -1,0 +1,84 @@
+<template>
+  <div class="panel">
+    <div class="panel__action">
+      <img class="panel__action-img" src="~assets/images/hide-button.png" alt="Кнопка скрыть" @click="$emit('hide')" />
+    </div>
+    <q-slider
+      class="panel__slider"
+      color="white"
+      label-color="white"
+      label-text-color="black"
+      thumb-size="50px"
+      thumb-color="dark"
+      track-size="12px"
+      v-model="year"
+      :min="1921"
+      :max="2020"
+      label
+    />
+    <div class="panel__controls">
+      <BasePagination class="panel__control pagination_horizontal" :icons="resourceIcons" />
+      <div class="panel__divider"></div>
+      <BasePagination class="panel__control pagination_horizontal" :icons="stationIcons" />
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import BasePagination from 'components/BasePagination.vue'
+
+defineEmits(['hide'])
+defineProps<{ resourceIcons: string[]; stationIcons: string[] }>()
+
+const year = ref<number>(0)
+</script>
+
+<style lang="sass" scoped>
+.panel
+  background: #1E1B1B
+  border-radius: 20px
+  padding: 10px 13px 40px 13px
+  text-align: center
+
+.panel__action-img
+  width: 25px
+  cursor: pointer
+
+.panel__action
+  text-align: right
+
+.panel__slider
+  width: 80%
+  margin-bottom: 40px
+
+/** Create a circle */
+:deep(.q-slider__thumb)
+  &::after
+    $size: 20px
+    content: ''
+    width: $size
+    height: $size
+    position: absolute
+    border-radius: 50%
+    background-color: #fff
+    left: 50%
+    top: 50%
+    margin-top: -$size / 2
+    margin-left: -$size / 2
+
+/** Change label font size */
+:deep(.q-slider__text)
+  font-size: 1.125rem
+
+.panel__controls
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+
+.panel__divider
+  width: 2px
+  height: 43px
+  background-color: #fff
+</style>
