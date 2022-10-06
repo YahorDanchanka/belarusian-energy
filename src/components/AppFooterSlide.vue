@@ -28,6 +28,8 @@ const links = ref<Social>([
 </script>
 
 <style lang="sass" scoped>
+@import src/css/mixins
+
 .footer-slide
   display: flex
   flex-wrap: wrap
@@ -37,6 +39,9 @@ const links = ref<Social>([
   width: 50%
   text-align: center
 
+  +xs-block
+    width: 100%
+
 .footer-slide__map-img
   width: 90%
 
@@ -44,8 +49,14 @@ const links = ref<Social>([
   width: 50%
   text-align: center
 
+  +xs-block
+    width: 100%
+
 .footer-slide__button-img
   max-width: 614px
+
+  +md-block
+    max-width: 90%
 
 .footer-slide__footer
   width: 100%

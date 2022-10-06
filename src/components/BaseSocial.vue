@@ -13,6 +13,8 @@ defineProps<{ links: Social }>()
 </script>
 
 <style lang="sass" scoped>
+@import src/css/mixins
+
 .social
   display: flex
   flex-wrap: wrap
@@ -23,4 +25,7 @@ defineProps<{ links: Social }>()
 
   &:last-child
     margin-right: 0
+
+  +sm-block
+    width: 40px
 </style>
