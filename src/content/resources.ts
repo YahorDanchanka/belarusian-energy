@@ -1,13 +1,6 @@
-export type Resources = IResource[]
+import { Info } from 'src/types'
 
-export interface IResource {
-  caption: string
-  iconUrl: string
-  titleIconUrl: string
-  content: string
-}
-
-export const resources: Resources = [
+export const resources: Info = [
   {
     caption: 'Дерево',
     iconUrl: '/images/resources/trees.png',
