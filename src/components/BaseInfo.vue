@@ -24,7 +24,6 @@ defineProps<{ caption: string; iconUrl: string; titleIconUrl: string; content: s
 
 .info
   display: flex
-  //flex-wrap: wrap
   flex-direction: column
   justify-content: center
   color: #D9D9D9
@@ -94,8 +93,8 @@ defineProps<{ caption: string; iconUrl: string; titleIconUrl: string; content: s
 
   +md-block
     width: calc(80% - 30px)
-    font-size: 1.5rem
-    line-height: 2.1rem
+    font-size: 1.3rem
+    line-height: 1.9rem
 
   +sm-block
     font-size: 1.2rem
