@@ -15,3 +15,10 @@ export interface IInfoItem {
   titleIconUrl: string
   content: string
 }
+
+export type Social = ISocialLink[]
+
+export interface ISocialLink {
+  icon: string
+  href: string
+}

@@ -13,7 +13,9 @@
           :titleIconUrl="station.titleIconUrl"
         />
       </swiper-slide>
-      <swiper-slide>Last slide</swiper-slide>
+      <swiper-slide>
+        <AppFooterSlide class="fit" />
+      </swiper-slide>
       <template v-slot:container-start>
         <AppPagination :icons="paginationIcons" :swiperInstance="swiperInstance" />
       </template>
@@ -30,6 +32,7 @@ import { stations } from 'src/content/stations'
 import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'
+import AppFooterSlide from 'components/AppFooterSlide.vue'
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<string[]>([
