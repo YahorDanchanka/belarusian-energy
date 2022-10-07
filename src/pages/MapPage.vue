@@ -7,15 +7,24 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import L from 'leaflet'
+import { createIcon, getColorByStationType, stations } from 'src/content/stations'
 import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
 import AppPanel from 'components/AppPanel.vue'
 import AppLegend from 'components/AppLegend.vue'
+import { IStation } from 'src/types'
 
 let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
+const markers = reactive<L.Marker[]>([])
+
+function addMarkerByStation(station: IStation): void {
+  if (station.coords) {
+    markers.push(L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }))
+  }
+}
 
 onMounted(() => {
   map = L.map(mapElem.value, { zoomControl: false, minZoom: 6 }).setView([53.61, 28.042], 6)
@@ -26,8 +35,21 @@ onMounted(() => {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
   }
 
+  stations.forEach((station) => {
+    addMarkerByStation(station)
+  })
+
   map.removeControl(map.attributionControl)
 })
+
+watch(
+  () => markers.length,
+  () => {
+    markers.forEach((marker) => {
+      marker.addTo(map)
+    })
+  }
+)
 </script>
 
 <style lang="sass" scoped>

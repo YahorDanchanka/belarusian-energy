@@ -37,6 +37,8 @@ export enum StationType {
   Wind, // ВЭС
   StateDistrict, // ГРЭС
   MiniThermal, // МТЭЦ
+  Nuclear, // АЭС
+  Solar, // СЭС
 }
 
 export enum Region {

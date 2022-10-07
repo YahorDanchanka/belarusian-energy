@@ -1,4 +1,4 @@
-import { latLng } from 'leaflet'
+import { icon, Icon, IconOptions, latLng } from 'leaflet'
 import { Info, Region, Stations, StationType } from 'src/types'
 
 export const stationInfo: Info = [
@@ -254,12 +254,14 @@ export const stations: Stations = [
     year: 1962,
     region: Region.Minsk,
     owner: 'Белэнерго',
+    coords: latLng(52.79472, 27.46861),
   },
   {
     type: StationType.Thermal,
     name: 'котельная «Осиповичи»',
     region: Region.Mogilev,
     owner: 'Белэнерго',
+    coords: latLng(53.310048, 28.66101),
   },
   {
     type: StationType.Thermal,
@@ -339,6 +341,7 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Дрисвята',
+    coords: latLng(55.45298389, 26.78490389),
   },
   {
     type: StationType.Hydroelectric,
@@ -356,6 +359,7 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Россь',
+    coords: latLng(53.3811, 24.39273),
   },
   {
     type: StationType.Hydroelectric,
@@ -400,6 +404,7 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Лукомка',
+    coords: latLng(54.71318, 29.19076),
   },
   {
     type: StationType.Hydroelectric,
@@ -417,6 +422,7 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Молчадь',
+    coords: latLng(53.46819, 25.55068),
   },
   {
     type: StationType.Hydroelectric,
@@ -425,6 +431,7 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Черница (приток Лучосы)',
+    coords: latLng(54.93586, 30.68084),
   },
   {
     type: StationType.Hydroelectric,
@@ -433,6 +440,7 @@ export const stations: Stations = [
     region: Region.Brest,
     owner: 'Белэнерго',
     river: 'Зельвянка',
+    coords: latLng(52.89306, 24.86309),
   },
   {
     type: StationType.Hydroelectric,
@@ -441,6 +449,7 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Зельвянка',
+    coords: latLng(53.14628, 24.84076),
   },
   {
     type: StationType.Hydroelectric,
@@ -449,6 +458,7 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Лоша (приток Ошмянки)',
+    coords: latLng(54.60694, 26.04444),
   },
   {
     type: StationType.Hydroelectric,
@@ -457,6 +467,7 @@ export const stations: Stations = [
     region: Region.Minsk,
     owner: 'Белэнерго',
     river: 'Югна',
+    coords: latLng(54.60491, 29.17612),
   },
   {
     type: StationType.Hydroelectric,
@@ -465,6 +476,7 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Августовский канал',
+    coords: latLng(53.86159, 23.74916),
   },
   {
     type: StationType.Wind,
@@ -475,9 +487,10 @@ export const stations: Stations = [
   },
   {
     type: StationType.Wind,
-    name: 'Ветропар',
+    name: 'Ветропарк',
     year: 2015,
     region: Region.Grodno,
+    coords: latLng(53.605282, 25.767765),
   },
   {
     type: StationType.StateDistrict,
@@ -509,6 +522,7 @@ export const stations: Stations = [
     year: 1973,
     region: Region.Grodno,
     owner: 'Белэнерго',
+    coords: latLng(53.71286, 23.81981),
   },
   {
     type: StationType.MiniThermal,
@@ -516,6 +530,7 @@ export const stations: Stations = [
     year: 2015,
     region: Region.Brest,
     owner: 'Белэнерго',
+    coords: latLng(52.26508, 26.77497),
   },
   {
     type: StationType.MiniThermal,
@@ -523,6 +538,7 @@ export const stations: Stations = [
     year: 1921,
     region: Region.Gomel,
     owner: 'Белэнерго',
+    coords: latLng(52.34811, 30.34944),
   },
   {
     type: StationType.MiniThermal,
@@ -530,6 +546,7 @@ export const stations: Stations = [
     year: 2009,
     region: Region.Brest,
     owner: 'Белэнерго',
+    coords: latLng(52.56739, 24.47732),
   },
   {
     type: StationType.MiniThermal,
@@ -537,6 +554,7 @@ export const stations: Stations = [
     year: 2000,
     region: Region.Vitebsk,
     owner: 'Белэнерго',
+    coords: latLng(55.19091, 30.25854),
   },
   {
     type: StationType.MiniThermal,
@@ -544,6 +562,7 @@ export const stations: Stations = [
     year: 2013,
     region: Region.Vitebsk,
     owner: 'Белэнерго',
+    coords: latLng(54.48004, 30.32455),
   },
   {
     type: StationType.MiniThermal,
@@ -551,6 +570,7 @@ export const stations: Stations = [
     year: 1922,
     region: Region.Brest,
     owner: 'Белэнерго',
+    coords: latLng(52.12878, 26.0335),
   },
   {
     type: StationType.MiniThermal,
@@ -558,5 +578,65 @@ export const stations: Stations = [
     year: 2007,
     region: Region.Minsk,
     owner: 'Белэнерго',
+    coords: latLng(54.49226, 26.89445),
+  },
+  {
+    type: StationType.Nuclear,
+    name: 'Белорусская АЭС',
+    year: 2020,
+    region: Region.Grodno,
+    owner: 'Белэнерго',
+    coords: latLng(54.752415, 26.088226),
   },
 ]
+
+export function getColorByStationType(stationType: StationType): string {
+  let color = '#'
+
+  switch (stationType) {
+    case StationType.Thermal:
+      color += '8439b4'
+      break
+    case StationType.Hydroelectric:
+      color += '00eaff'
+      break
+    case StationType.Wind:
+      color += '299f58'
+      break
+    case StationType.Nuclear:
+      color += 'e74c3c'
+      break
+    case StationType.Solar:
+      color += 'ffde00'
+      break
+    default:
+      color += '8439b4'
+  }
+
+  return color
+}
+
+/** Для кэширования */
+const usedIcons: Icon<IconOptions>[] = []
+
+export function createIcon(color: string): Icon {
+  const iconUrl = `/images/markers/${color.slice(1)}.png`
+
+  const foundIcon = usedIcons.find((usedIcon) => usedIcon.options.iconUrl === iconUrl)
+
+  if (foundIcon) {
+    return foundIcon
+  }
+
+  const createdIcon = icon({
+    iconUrl: iconUrl,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 41],
+  })
+
+  usedIcons.push(createdIcon)
+  return createdIcon
+}
