@@ -46,25 +46,12 @@ function toggleVisibility(): void {
 @import src/css/mixins
 
 .panel-wrapper
-  position: absolute
-  bottom: 10px
-  left: 50%
-  margin-left: -350px
-  z-index: 999
-  width: 700px
-
-  +sm-block
-    width: 580px
-    margin-left: -290px
-
-  +xs-block
-    width: 310px
-    margin-left: -155px
+  position: relative
 
 .panel-wrapper__panel
   transition: bottom 800ms
   position: relative
-  z-index: 1000
+  z-index: 402
 
 .panel-wrapper__control
   position: absolute

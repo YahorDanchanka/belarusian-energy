@@ -1,7 +1,7 @@
 <template>
   <div class="map">
     <div ref="mapElem" class="fit"></div>
-    <AppPanel />
+    <AppPanel class="map__control map__control_panel" />
     <AppLegend class="map__control map__control_legend" />
   </div>
 </template>
@@ -40,7 +40,22 @@ onMounted(() => {
 
 .map__control
   position: absolute
-  z-index: 99999
+  z-index: 401
+
+.map__control_panel
+  position: absolute
+  bottom: 10px
+  left: 50%
+  margin-left: -350px
+  width: 700px
+
+  +sm-block
+    width: 580px
+    margin-left: -290px
+
+  +xs-block
+    width: 310px
+    margin-left: -155px
 
 .map__control_legend
   width: 380px
