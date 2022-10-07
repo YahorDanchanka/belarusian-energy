@@ -254,15 +254,12 @@ export const stations: Stations = [
     year: 1962,
     region: Region.Minsk,
     owner: 'Белэнерго',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Thermal,
     name: 'котельная «Осиповичи»',
-    year: -1,
     region: Region.Mogilev,
     owner: 'Белэнерго',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Thermal,
@@ -342,7 +339,6 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Дрисвята',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -360,7 +356,6 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Россь',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -405,7 +400,6 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Лукомка',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -423,7 +417,6 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Молчадь',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -432,7 +425,6 @@ export const stations: Stations = [
     region: Region.Vitebsk,
     owner: 'Белэнерго',
     river: 'Черница (приток Лучосы)',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -441,7 +433,6 @@ export const stations: Stations = [
     region: Region.Brest,
     owner: 'Белэнерго',
     river: 'Зельвянка',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -450,7 +441,6 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Зельвянка',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -459,7 +449,6 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Лоша (приток Ошмянки)',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -468,7 +457,6 @@ export const stations: Stations = [
     region: Region.Minsk,
     owner: 'Белэнерго',
     river: 'Югна',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Hydroelectric,
@@ -477,7 +465,6 @@ export const stations: Stations = [
     region: Region.Grodno,
     owner: 'Белэнерго',
     river: 'Августовский канал',
-    coords: latLng(52.423863, 30.996961),
   },
   {
     type: StationType.Wind,

@@ -53,7 +53,7 @@ export type Stations = IStation[]
 export interface IStation {
   type: StationType
   name: string
-  year: number
+  year?: number
   region: Region
   owner?: string
   river?: string
