@@ -43,6 +43,8 @@ function toggleVisibility(): void {
 </script>
 
 <style lang="sass" scoped>
+@import src/css/mixins
+
 .panel-wrapper
   position: absolute
   bottom: 10px
@@ -50,6 +52,14 @@ function toggleVisibility(): void {
   margin-left: -350px
   z-index: 999
   width: 700px
+
+  +sm-block
+    width: 580px
+    margin-left: -290px
+
+  +xs-block
+    width: 310px
+    margin-left: -155px
 
 .panel-wrapper__panel
   transition: bottom 800ms
@@ -63,4 +73,13 @@ function toggleVisibility(): void {
   bottom: 10px
   transform: rotate(180deg)
   cursor: pointer
+
+:deep(.panel__control .pagination__item)
+  +sm-block
+    width: 40px
+    height: 40px
+
+  +xs-block
+    width: 35px
+    height: 35px
 </style>

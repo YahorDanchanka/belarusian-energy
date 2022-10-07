@@ -2,6 +2,7 @@
   <div class="map">
     <div ref="mapElem" class="fit"></div>
     <AppPanel />
+    <BaseLegend class="map__control map__control_legend" />
   </div>
 </template>
 
@@ -11,6 +12,7 @@ import L from 'leaflet'
 import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
 import AppPanel from 'components/AppPanel.vue'
+import BaseLegend from 'components/BaseLegend.vue'
 
 let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
@@ -29,8 +31,24 @@ onMounted(() => {
 </script>
 
 <style lang="sass" scoped>
+@import src/css/mixins
+
 .map
   position: relative
   height: 100vh
   overflow: hidden
+
+.map__control
+  position: absolute
+  z-index: 99999
+
+.map__control_legend
+  width: 380px
+  top: 30px
+  right: 30px
+
+  +xs-block
+    width: 310px
+    right: 50%
+    margin-right: -155px
 </style>

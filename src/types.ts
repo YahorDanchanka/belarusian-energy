@@ -22,3 +22,10 @@ export interface ISocialLink {
   icon: string
   href: string
 }
+
+export type Legend = ILegendCategory[]
+
+export interface ILegendCategory {
+  name: string
+  items: { color: string; caption: string }[]
+}

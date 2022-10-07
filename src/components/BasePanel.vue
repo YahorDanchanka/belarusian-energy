@@ -35,6 +35,8 @@ const year = ref<number>(0)
 </script>
 
 <style lang="sass" scoped>
+@import src/css/mixins
+
 .panel
   background: #1E1B1B
   border-radius: 20px
@@ -77,8 +79,21 @@ const year = ref<number>(0)
   align-items: center
   justify-content: space-between
 
+  +xs-block
+    justify-content: center
+
 .panel__divider
   width: 2px
   height: 43px
   background-color: #fff
+
+  +xs-block
+    display: none
+
+.panel__control
+  +xs-block
+    margin-bottom: 15px
+
+    &:last-child
+        margin-bottom: 0
 </style>
