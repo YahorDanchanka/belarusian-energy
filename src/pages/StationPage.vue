@@ -4,7 +4,7 @@
       <swiper-slide>
         <AppMainSlide class="fit" />
       </swiper-slide>
-      <swiper-slide class="slider__slide_pagination" v-for="station in stations">
+      <swiper-slide class="slider__slide_pagination" v-for="station in stationInfo">
         <BaseInfo
           class="fit q-pa-lg"
           :caption="station.caption"
@@ -28,7 +28,7 @@ import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Swiper as SwiperClass } from 'swiper/types'
 import 'swiper/css'
-import { stations } from 'src/content/stations'
+import { stationInfo } from 'src/content/stations'
 import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'

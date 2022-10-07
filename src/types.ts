@@ -1,4 +1,5 @@
 import { RouteLocationRaw } from 'vue-router'
+import { LatLng } from 'leaflet'
 
 export type Menu = IMenuItem[]
 
@@ -28,4 +29,33 @@ export type Legend = ILegendCategory[]
 export interface ILegendCategory {
   name: string
   items: { color: string; caption: string }[]
+}
+
+export enum StationType {
+  Thermal, // ТЭЦ
+  Hydroelectric, // ГЭС
+  Wind, // ВЭС
+  StateDistrict, // ГРЭС
+  MiniThermal, // МТЭЦ
+}
+
+export enum Region {
+  Brest,
+  Gomel,
+  Grodno,
+  Mogilev,
+  Minsk,
+  Vitebsk,
+}
+
+export type Stations = IStation[]
+
+export interface IStation {
+  type: StationType
+  name: string
+  year: number
+  region: Region
+  owner: string
+  river?: string
+  coords?: LatLng
 }

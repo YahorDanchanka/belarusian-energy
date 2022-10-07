@@ -1,6 +1,6 @@
 import { Info } from 'src/types'
 
-export const resources: Info = [
+export const resourceInfo: Info = [
   {
     caption: 'Дерево',
     iconUrl: '/images/resources/trees.png',
