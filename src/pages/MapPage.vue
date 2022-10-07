@@ -2,7 +2,7 @@
   <div class="map">
     <div ref="mapElem" class="fit"></div>
     <AppPanel />
-    <BaseLegend class="map__control map__control_legend" />
+    <AppLegend class="map__control map__control_legend" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import L from 'leaflet'
 import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
 import AppPanel from 'components/AppPanel.vue'
-import BaseLegend from 'components/BaseLegend.vue'
+import AppLegend from 'components/AppLegend.vue'
 
 let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
