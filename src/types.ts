@@ -55,7 +55,7 @@ export interface IStation {
   name: string
   year: number
   region: Region
-  owner: string
+  owner?: string
   river?: string
   coords?: LatLng
 }
