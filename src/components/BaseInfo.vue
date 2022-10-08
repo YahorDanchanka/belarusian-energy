@@ -91,6 +91,10 @@ defineProps<{ caption: string; iconUrl: string; titleIconUrl: string; content: s
   font-style: italic
   text-align: justify
 
+  :deep(ul)
+    margin: 0
+    padding: 0
+
   +md-block
     width: calc(80% - 30px)
     font-size: 1.3rem

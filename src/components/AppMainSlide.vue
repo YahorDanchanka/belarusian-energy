@@ -17,7 +17,9 @@
         <BaseButton class="main-slide__button" imageUrl="/images/icons/nuclear.png" :to="{ name: 'stations' }">
           Станции
         </BaseButton>
-        <BaseButton class="main-slide__button" to="/404" imageUrl="/images/icons/future.png">Будущее</BaseButton>
+        <BaseButton class="main-slide__button" imageUrl="/images/icons/future.png" :to="{ name: 'future' }">
+          Будущее
+        </BaseButton>
       </div>
     </div>
   </div>
