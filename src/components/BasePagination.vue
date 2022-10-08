@@ -6,7 +6,7 @@
       :class="{ pagination__item_active: selected.includes(icon.value) }"
       @click="update(icon.value)"
     >
-      <img :src="icon.iconUrl" alt="Иконка" />
+      <img class="pagination__item-img" :src="icon.iconUrl" alt="Иконка" />
     </div>
   </div>
 </template>
@@ -67,9 +67,13 @@ function update(value: PaginationItemValue): void {
   margin-bottom: 7px
   cursor: pointer
   user-select: none
+  text-align: center
 
   &:last-child
     margin-bottom: 0
+
+.pagination__item-img
+  height: 36px
 
 .pagination__item_active
   border: 3px solid #FFD900

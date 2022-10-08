@@ -37,8 +37,20 @@ const paginationStyles = computed<object>(() => {
   return styles
 })
 
-function setSlide(index: number): void {
-  props.swiperInstance.slideTo(index + 1)
+function setSlide(value: string | number): void {
+  if (typeof value === 'string') {
+    if (value === 'prev') {
+      props.swiperInstance.slidePrev()
+    }
+
+    if (value === 'next') {
+      props.swiperInstance.slideNext()
+    }
+
+    return
+  }
+
+  props.swiperInstance.slideTo(value + 1)
 }
 
 onMounted(() => {
