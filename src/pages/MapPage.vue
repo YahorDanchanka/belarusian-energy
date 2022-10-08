@@ -40,7 +40,14 @@ function showMarkers(): void {
 }
 
 onMounted(() => {
-  map = L.map(mapElem.value, { zoomControl: false, minZoom: 6 }).setView([53.61, 28.042], 6)
+  map = L.map(mapElem.value, {
+    zoomControl: false,
+    minZoom: 6,
+    maxBounds: L.latLngBounds(
+      L.latLng(56.16645553553367, 23.148533649131213),
+      L.latLng(51.216634055031754, 32.79452974288121)
+    ),
+  }).setView([53.61, 28.042], 6)
 
   if (+process.env.HAS_ACCESS_TOKEN!) {
     L.tileLayer.provider('Jawg.Dark', { accessToken: process.env.MAP_ACCESS_TOKEN }).addTo(map)
