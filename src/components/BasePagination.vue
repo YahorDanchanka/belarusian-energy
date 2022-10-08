@@ -76,5 +76,5 @@ function update(value: PaginationItemValue): void {
   height: 36px
 
 .pagination__item_active
-  border: 3px solid #FFD900
+  outline: 3px solid #FFD900
 </style>
