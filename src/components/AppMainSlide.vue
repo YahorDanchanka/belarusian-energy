@@ -11,7 +11,9 @@
         <BaseButton class="main-slide__button" imageUrl="/images/icons/puzzle.png" :to="{ name: 'resources' }">
           Ресурсы
         </BaseButton>
-        <BaseButton class="main-slide__button" to="/404" imageUrl="/images/icons/man.png">Люди</BaseButton>
+        <BaseButton class="main-slide__button" imageUrl="/images/icons/man.png" :to="{ name: 'people' }">
+          Люди
+        </BaseButton>
         <BaseButton class="main-slide__button" imageUrl="/images/icons/nuclear.png" :to="{ name: 'stations' }">
           Станции
         </BaseButton>
