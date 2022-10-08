@@ -11,9 +11,10 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import { Swiper as SwiperClass } from 'swiper/types'
+import { Pagination } from 'src/types'
 import BasePagination from 'components/BasePagination.vue'
 
-const props = defineProps<{ icons: string[]; swiperInstance: SwiperClass }>()
+const props = defineProps<{ icons: Pagination; swiperInstance: SwiperClass }>()
 
 const paginationComponent = ref<{ paginationElem: HTMLElement } | null>(null)
 const verticalIndent = ref<number>(0)

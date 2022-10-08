@@ -7,6 +7,7 @@
       :resourceIcons="resourceIcons"
       :stationIcons="stationIcons"
       @hide="toggleVisibility"
+      @pagination="onPagination"
     />
     <img
       class="panel-wrapper__control"
@@ -19,30 +20,68 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { Pagination, PaginationItemValue, StationType } from 'src/types'
 import { useMapStore } from 'stores/mapStore'
 import BasePanel from 'components/BasePanel.vue'
 
 const mapStore = useMapStore()
 
-const resourceIcons = ref<string[]>([
-  '/images/pagination/wood.png',
-  '/images/pagination/dirt.png',
-  '/images/pagination/ugol.png',
-  '/images/pagination/neft.png',
-  '/images/pagination/all.png',
+const resourceIcons = ref<Pagination>([
+  { iconUrl: '/images/pagination/wood.png', value: 0 },
+  { iconUrl: '/images/pagination/dirt.png', value: 1 },
+  { iconUrl: '/images/pagination/ugol.png', value: 2 },
+  { iconUrl: '/images/pagination/neft.png', value: 3 },
+  { iconUrl: '/images/pagination/all.png', value: 'all' },
 ])
-const stationIcons = ref<string[]>([
-  '/images/pagination/uran.png',
-  '/images/pagination/wind.png',
-  '/images/pagination/water.png',
-  '/images/pagination/gas.png',
-  '/images/pagination/sun.png',
-  '/images/pagination/all.png',
+const stationIcons = ref<Pagination>([
+  { iconUrl: '/images/pagination/uran.png', value: StationType.Nuclear },
+  { iconUrl: '/images/pagination/wind.png', value: StationType.Wind },
+  { iconUrl: '/images/pagination/water.png', value: StationType.Hydroelectric },
+  { iconUrl: '/images/pagination/gas.png', value: StationType.Thermal },
+  { iconUrl: '/images/pagination/sun.png', value: StationType.Solar },
+  { iconUrl: '/images/pagination/all.png', value: 'all' },
 ])
 const isPanelVisible = ref<boolean>(true)
 
 function toggleVisibility(): void {
   isPanelVisible.value = !isPanelVisible.value
+}
+
+function onPagination(type: 'resources' | 'stations', items: PaginationItemValue[]): void {
+  if (type === 'stations') {
+    /** Добавляем в фильтры все нужные станции, если выбран фильтр "Всё" */
+    if (items.includes('all')) {
+      mapStore.stationTypes = [
+        StationType.Nuclear,
+        StationType.Wind,
+        StationType.Hydroelectric,
+        StationType.Thermal,
+        StationType.Solar,
+        StationType.StateDistrict,
+        StationType.MiniThermal,
+      ]
+
+      return
+    }
+
+    mapStore.stationTypes = <StationType[]>items.filter((paginationItem) => typeof paginationItem === 'number')
+
+    /** Добавляем ГРЭС, если в фильтрах есть ТЭЦ */
+    if (
+      mapStore.stationTypes.includes(StationType.Thermal) &&
+      !mapStore.stationTypes.includes(StationType.StateDistrict)
+    ) {
+      mapStore.stationTypes.push(StationType.StateDistrict)
+    }
+
+    /** Добавляем МТЭЦ, если в фильтрах есть ТЭЦ */
+    if (
+      mapStore.stationTypes.includes(StationType.Thermal) &&
+      !mapStore.stationTypes.includes(StationType.MiniThermal)
+    ) {
+      mapStore.stationTypes.push(StationType.MiniThermal)
+    }
+  }
 }
 </script>
 

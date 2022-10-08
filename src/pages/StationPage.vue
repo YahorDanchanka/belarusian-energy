@@ -29,18 +29,19 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Swiper as SwiperClass } from 'swiper/types'
 import 'swiper/css'
 import { stationInfo } from 'src/content/stations'
+import { Pagination } from 'src/types'
 import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'
 import AppFooterSlide from 'components/AppFooterSlide.vue'
 
 const swiperInstance = ref<SwiperClass>()
-const paginationIcons = ref<string[]>([
-  '/images/pagination/uran.png',
-  '/images/pagination/wind.png',
-  '/images/pagination/water.png',
-  '/images/pagination/gas.png',
-  '/images/pagination/sun.png',
+const paginationIcons = ref<Pagination>([
+  { iconUrl: '/images/pagination/uran.png', value: 0 },
+  { iconUrl: '/images/pagination/wind.png', value: 1 },
+  { iconUrl: '/images/pagination/water.png', value: 2 },
+  { iconUrl: '/images/pagination/gas.png', value: 3 },
+  { iconUrl: '/images/pagination/sun.png', value: 4 },
 ])
 
 function onSwiper(instance: SwiperClass): void {

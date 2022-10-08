@@ -61,3 +61,11 @@ export interface IStation {
   river?: string
   coords?: LatLng
 }
+
+export type Pagination = IPaginationItem[]
+export type PaginationItemValue = string | number
+
+export interface IPaginationItem {
+  iconUrl: string
+  value: PaginationItemValue
+}

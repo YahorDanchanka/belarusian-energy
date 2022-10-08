@@ -18,18 +18,33 @@
       @update:modelValue="(newValue) => $emit('update:modelValue', newValue)"
     />
     <div class="panel__controls">
-      <BasePagination class="panel__control pagination_horizontal" :icons="resourceIcons" />
+      <BasePagination
+        class="panel__control pagination_horizontal"
+        :icons="resourceIcons"
+        multiple
+        @change="(value) => onPaginationChange('resources', value)"
+      />
       <div class="panel__divider"></div>
-      <BasePagination class="panel__control pagination_horizontal" :icons="stationIcons" />
+      <BasePagination
+        class="panel__control pagination_horizontal"
+        :icons="stationIcons"
+        multiple
+        @change="(value) => onPaginationChange('stations', value)"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { Pagination, PaginationItemValue } from 'src/types'
 import BasePagination from 'components/BasePagination.vue'
 
-defineEmits(['hide', 'update:modelValue'])
-defineProps<{ resourceIcons: string[]; stationIcons: string[]; modelValue: number }>()
+const emit = defineEmits(['hide', 'update:modelValue', 'pagination'])
+defineProps<{ resourceIcons: Pagination; stationIcons: Pagination; modelValue: number }>()
+
+function onPaginationChange(type: 'resources' | 'stations', items: PaginationItemValue[]) {
+  emit('pagination', type, items)
+}
 </script>
 
 <style lang="sass" scoped>

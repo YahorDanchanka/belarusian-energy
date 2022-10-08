@@ -29,22 +29,23 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Swiper as SwiperClass } from 'swiper/types'
 import 'swiper/css'
 import { resourceInfo } from 'src/content/resources'
+import { Pagination } from 'src/types'
 import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'
 import AppFooterSlide from 'components/AppFooterSlide.vue'
 
 const swiperInstance = ref<SwiperClass>()
-const paginationIcons = ref<string[]>([
-  '/images/pagination/wood.png',
-  '/images/pagination/dirt.png',
-  '/images/pagination/ugol.png',
-  '/images/pagination/neft.png',
-  '/images/pagination/gas.png',
-  '/images/pagination/water.png',
-  '/images/pagination/wind.png',
-  '/images/pagination/uran.png',
-  '/images/pagination/sun.png',
+const paginationIcons = ref<Pagination>([
+  { iconUrl: '/images/pagination/wood.png', value: 0 },
+  { iconUrl: '/images/pagination/dirt.png', value: 1 },
+  { iconUrl: '/images/pagination/ugol.png', value: 2 },
+  { iconUrl: '/images/pagination/neft.png', value: 3 },
+  { iconUrl: '/images/pagination/gas.png', value: 4 },
+  { iconUrl: '/images/pagination/water.png', value: 5 },
+  { iconUrl: '/images/pagination/wind.png', value: 6 },
+  { iconUrl: '/images/pagination/uran.png', value: 7 },
+  { iconUrl: '/images/pagination/sun.png', value: 8 },
 ])
 
 function onSwiper(instance: SwiperClass): void {

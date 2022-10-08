@@ -53,7 +53,7 @@ onMounted(() => {
 })
 
 watch(
-  () => mapStore.year,
+  () => mapStore.filteredStations,
   () => {
     showMarkers()
   }
