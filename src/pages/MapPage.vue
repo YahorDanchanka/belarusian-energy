@@ -9,21 +9,34 @@
 <script lang="ts" setup>
 import { onMounted, reactive, ref, watch } from 'vue'
 import L from 'leaflet'
-import { createIcon, getColorByStationType, stations } from 'src/content/stations'
+import { createIcon, getColorByStationType } from 'src/content/stations'
+import { IStation } from 'src/types'
+import { useMapStore } from 'stores/mapStore'
 import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
 import AppPanel from 'components/AppPanel.vue'
 import AppLegend from 'components/AppLegend.vue'
-import { IStation } from 'src/types'
+
+const mapStore = useMapStore()
 
 let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
-const markers = reactive<L.Marker[]>([])
+const markerGroup = reactive<L.LayerGroup>(L.layerGroup())
 
+/** Добавляет маркер в группу маркеров, используя объект station */
 function addMarkerByStation(station: IStation): void {
   if (station.coords) {
-    markers.push(L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }))
+    markerGroup.addLayer(L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }))
   }
+}
+
+/** Показывает маркеры на карте */
+function showMarkers(): void {
+  if (!map) return
+
+  markerGroup.clearLayers()
+  mapStore.filteredStations.forEach((station) => addMarkerByStation(station))
+  markerGroup.addTo(map)
 }
 
 onMounted(() => {
@@ -35,19 +48,14 @@ onMounted(() => {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
   }
 
-  stations.forEach((station) => {
-    addMarkerByStation(station)
-  })
-
   map.removeControl(map.attributionControl)
+  showMarkers()
 })
 
 watch(
-  () => markers.length,
+  () => mapStore.year,
   () => {
-    markers.forEach((marker) => {
-      marker.addTo(map)
-    })
+    showMarkers()
   }
 )
 </script>

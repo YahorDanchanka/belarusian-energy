@@ -2,6 +2,7 @@
   <div class="panel-wrapper">
     <BasePanel
       class="panel-wrapper__panel"
+      v-model="mapStore.year"
       :style="{ bottom: !isPanelVisible ? '-300px' : '0px' }"
       :resourceIcons="resourceIcons"
       :stationIcons="stationIcons"
@@ -18,7 +19,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useMapStore } from 'stores/mapStore'
 import BasePanel from 'components/BasePanel.vue'
+
+const mapStore = useMapStore()
 
 const resourceIcons = ref<string[]>([
   '/images/pagination/wood.png',

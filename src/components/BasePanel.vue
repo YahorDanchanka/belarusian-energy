@@ -11,10 +11,11 @@
       thumb-size="50px"
       thumb-color="dark"
       track-size="12px"
-      v-model="year"
+      :modelValue="modelValue"
       :min="1921"
       :max="2020"
       label
+      @update:modelValue="(newValue) => $emit('update:modelValue', newValue)"
     />
     <div class="panel__controls">
       <BasePagination class="panel__control pagination_horizontal" :icons="resourceIcons" />
@@ -25,13 +26,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
 import BasePagination from 'components/BasePagination.vue'
 
-defineEmits(['hide'])
-defineProps<{ resourceIcons: string[]; stationIcons: string[] }>()
-
-const year = ref<number>(0)
+defineEmits(['hide', 'update:modelValue'])
+defineProps<{ resourceIcons: string[]; stationIcons: string[]; modelValue: number }>()
 </script>
 
 <style lang="sass" scoped>
