@@ -73,7 +73,7 @@ function update(value: PaginationItemValue): void {
     margin-bottom: 0
 
 .pagination__item-img
-  height: 36px
+  max-height: 36px
 
 .pagination__item_active
   outline: 3px solid #FFD900

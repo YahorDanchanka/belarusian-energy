@@ -90,19 +90,26 @@ function onPagination(type: 'resources' | 'stations', items: PaginationItemValue
 
 .panel-wrapper
   position: relative
+  background-color: red
 
 .panel-wrapper__panel
   transition: bottom 800ms
-  position: relative
+  position: absolute
   z-index: 402
 
 .panel-wrapper__control
   position: absolute
   width: 25px
-  right: 13px
+  right: 40px
   bottom: 10px
   transform: rotate(180deg)
   cursor: pointer
+
+  +sm-block
+    right: 30px
+
+  +xs-block
+    right: 13px
 
 :deep(.panel__control .pagination__item)
   +sm-block
