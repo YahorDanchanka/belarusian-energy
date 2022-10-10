@@ -13,6 +13,13 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   {
+    path: '/tests',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { name: 'collect-belarus', path: 'collect-belarus', component: () => import('pages/CollectBelarus.vue') },
+    ],
+  },
+  {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
   },

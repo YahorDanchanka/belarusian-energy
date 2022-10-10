@@ -69,3 +69,13 @@ export interface IPaginationItem {
   iconUrl: string
   value: PaginationItemValue
 }
+
+export type Regions = IRegion[]
+
+export interface IRegion {
+  id: string | number
+  neighbors: IRegion[]
+  imageUrl: string
+  coords: { top: string; left: string }
+  fixed: { top: number; left: number }
+}
