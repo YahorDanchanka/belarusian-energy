@@ -76,6 +76,6 @@ export interface IRegion {
   id: string | number
   neighbors: IRegion[]
   imageUrl: string
-  coords: { top: string; left: string }
+  coords: { top: number; left: number }
   fixed: { top: number; left: number }
 }
