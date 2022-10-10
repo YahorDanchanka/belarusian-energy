@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { isEqual } from 'lodash'
 import { IRegion, Regions } from 'src/types'
 import { getRegions } from 'src/content/regions'
@@ -93,6 +93,10 @@ onMounted(() => {
       return false
     }
   })
+})
+
+onUnmounted(() => {
+  document.querySelectorAll('.region').forEach((region) => region.remove())
 })
 
 watch(isFinish, () => {
