@@ -26,7 +26,11 @@ const markerGroup = reactive<L.LayerGroup>(L.layerGroup())
 /** Добавляет маркер в группу маркеров, используя объект station */
 function addMarkerByStation(station: IStation): void {
   if (station.coords) {
-    markerGroup.addLayer(L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }))
+    markerGroup.addLayer(
+      L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }).bindPopup(
+        `${station.name} (г. ${station.year ? station.year : 'неизвестно'})`
+      )
+    )
   }
 }
 
