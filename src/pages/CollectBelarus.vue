@@ -16,7 +16,6 @@
 
 <script lang="ts" setup>
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { isEqual } from 'lodash'
 import { IRegion, Regions } from 'src/types'
 import { getRegions } from 'src/content/regions'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
@@ -25,7 +24,13 @@ const regions = ref<Regions>(getRegions())
 const regionElements = ref([])
 const showModal = ref<boolean>(false)
 
-const isFinish = computed(() => regions.value.every((region) => isEqual(region.coords, region.fixed)))
+/** Регионы расставлены правильно, если разница между текущими координатами и правильными координатами <= 10 */
+const isFinish = computed(() =>
+  regions.value.every(
+    (region) =>
+      Math.abs(region.coords.top - region.fixed.top) <= 10 && Math.abs(region.coords.left - region.fixed.left) <= 10
+  )
+)
 
 function gluePuzzle(draggableIndex: number, droppableIndex: number): void {
   const draggable: IRegion = regions.value[draggableIndex]
@@ -82,6 +87,18 @@ onMounted(() => {
         document.removeEventListener('mousemove', onMouseMove)
         regionElem.onmouseup = null
 
+        if (isFinish.value) {
+          showModal.value = true
+
+          setTimeout(() => {
+            showModal.value = false
+            regions.value = getRegions()
+            regionElements.value = []
+          }, 2500)
+
+          return
+        }
+
         if (currentDroppable) {
           const droppableRegionIndex = +currentDroppable.getAttribute('data-region-index')!
           gluePuzzle(regionIndex, droppableRegionIndex)
@@ -97,18 +114,6 @@ onMounted(() => {
 
 onUnmounted(() => {
   document.querySelectorAll('.region').forEach((region) => region.remove())
-})
-
-watch(isFinish, () => {
-  if (isFinish.value) {
-    showModal.value = true
-
-    setTimeout(() => {
-      showModal.value = false
-      regions.value = getRegions()
-      regionElements.value = []
-    }, 2500)
-  }
 })
 </script>
 

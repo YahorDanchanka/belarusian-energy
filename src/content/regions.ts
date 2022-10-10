@@ -4,6 +4,13 @@ import { Region, Regions } from 'src/types'
 export function getRegions(): Regions {
   const regions: Regions = [
     {
+      id: Region.Minsk,
+      neighbors: [],
+      imageUrl: '/images/belarus/minsk.png',
+      coords: { top: 224, left: 642 },
+      fixed: { top: 224, left: 642 },
+    },
+    {
       id: Region.Gomel,
       neighbors: [],
       imageUrl: '/images/belarus/gomel.png',
@@ -37,13 +44,6 @@ export function getRegions(): Regions {
       imageUrl: '/images/belarus/mogilev.png',
       coords: { top: random(201, window.innerHeight) - 201, left: random(282, window.innerWidth) - 282 },
       fixed: { top: 277, left: 757 },
-    },
-    {
-      id: Region.Minsk,
-      neighbors: [],
-      imageUrl: '/images/belarus/minsk.png',
-      coords: { top: random(277, window.innerHeight) - 277, left: random(209, window.innerWidth) - 209 },
-      fixed: { top: 224, left: 642 },
     },
   ]
 
