@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import L from 'leaflet'
 import { createIcon, getColorByStationType } from 'src/content/stations'
 import { IStation } from 'src/types'
@@ -21,7 +21,7 @@ const mapStore = useMapStore()
 
 let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
-const markerGroup = reactive<L.LayerGroup>(L.layerGroup())
+const markerGroup: L.LayerGroup = L.layerGroup()
 
 /** Добавляет маркер в группу маркеров, используя объект station */
 function addMarkerByStation(station: IStation): void {
