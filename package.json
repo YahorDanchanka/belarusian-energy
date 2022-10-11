@@ -11,6 +11,7 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
+    "interactjs": "^1.10.17",
     "leaflet": "^1.9.2",
     "leaflet-providers": "^1.13.0",
     "lodash": "^4.17.21",
@@ -22,6 +23,7 @@
     "vue-router": "^4.0.0"
   },
   "devDependencies": {
+    "@interactjs/types": "^1.10.17",
     "@quasar/app-webpack": "^3.0.0",
     "@types/leaflet": "^1.8.0",
     "@types/leaflet-providers": "^1.2.1",

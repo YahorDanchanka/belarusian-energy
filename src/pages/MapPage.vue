@@ -74,15 +74,6 @@ watch(
 <style lang="sass" scoped>
 @import src/css/mixins
 
-.map
-  position: relative
-  height: 100vh
-  overflow: hidden
-
-.map__control
-  position: absolute
-  z-index: 401
-
 .map__control_panel
   position: absolute
   bottom: 10px

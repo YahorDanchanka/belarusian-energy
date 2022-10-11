@@ -53,6 +53,7 @@ export enum Region {
 export type Stations = IStation[]
 
 export interface IStation {
+  id: string
   type: StationType
   name: string
   year?: number
