@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     path: '/tests',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { name: 'collect-belarus', path: 'collect-belarus', component: () => import('pages/CollectBelarus.vue') },
+      { name: 'collect-belarus', path: 'collect-belarus', component: () => import('pages/CollectBelarusPage.vue') },
       { name: 'find-the-station', path: 'find-the-station', component: () => import('pages/FindTheStationPage.vue') },
     ],
   },
