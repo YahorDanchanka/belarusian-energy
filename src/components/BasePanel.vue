@@ -13,7 +13,7 @@
       track-size="12px"
       :modelValue="modelValue"
       :min="1921"
-      :max="2020"
+      :max="2022"
       label
       @update:modelValue="(newValue) => $emit('update:modelValue', newValue)"
     />

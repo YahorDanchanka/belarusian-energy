@@ -654,6 +654,38 @@ export const stations: Stations = [
     owner: 'Белэнерго',
     coords: latLng(54.752415, 26.088226),
   },
+  {
+    id: '66',
+    type: StationType.Solar,
+    name: 'СЭС "Белоруснефть"',
+    year: 2022,
+    region: Region.Gomel,
+    coords: latLng(52.346026, 30.371009),
+  },
+  {
+    id: '67',
+    type: StationType.Solar,
+    name: 'СЭС "А1"',
+    year: 2016,
+    region: Region.Gomel,
+    coords: latLng(51.784161, 30.255909),
+  },
+  {
+    id: '68',
+    type: StationType.Solar,
+    name: 'СЭС "PV-PROJECT BRAGIN II"',
+    year: 2016,
+    region: Region.Gomel,
+    coords: latLng(51.797497, 30.208471),
+  },
+  {
+    id: '69',
+    type: StationType.Solar,
+    name: 'Мядельская СЭС',
+    year: 2016,
+    region: Region.Minsk,
+    coords: latLng(54.9651, 26.6346),
+  },
 ]
 
 export function getColorByStationType(stationType: StationType): string {
