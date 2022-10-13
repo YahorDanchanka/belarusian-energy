@@ -21,13 +21,12 @@ const paginationComponent = ref<{
   updateState: (value: PaginationItemValue) => void
 } | null>(null)
 const verticalIndent = ref<number>(0)
+const activeIndex = ref<number>(props.swiperInstance.activeIndex)
 
 const isPaginationVisible = computed<boolean>(
-  () =>
-    !!props.swiperInstance &&
-    props.swiperInstance.activeIndex > 0 &&
-    props.swiperInstance.activeIndex !== props.swiperInstance.slides.length - 1
+  () => activeIndex.value > 0 && activeIndex.value !== props.swiperInstance.slides.length - 1
 )
+
 const paginationStyles = computed<object>(() => {
   const styles: { [key: string]: string } = {
     'margin-top': `${verticalIndent.value}px`,
@@ -58,6 +57,7 @@ function setSlide(value: string | number): void {
 
 props.swiperInstance.on('slideChange', (swiper: SwiperClass) => {
   paginationComponent.value?.updateState(swiper.activeIndex - 1)
+  activeIndex.value = props.swiperInstance.activeIndex
 })
 
 onMounted(() => {
