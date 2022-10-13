@@ -41,6 +41,13 @@ export enum StationType {
   Solar, // СЭС
 }
 
+export enum ResourceType {
+  Wood,
+  Turf,
+  Coal,
+  Oil,
+}
+
 export enum Region {
   Brest,
   Gomel,
@@ -60,6 +67,15 @@ export interface IStation {
   region: Region
   owner?: string
   river?: string
+  coords?: LatLng
+}
+
+export interface IResource {
+  id: string
+  type: ResourceType
+  name: string
+  year?: number
+  region: Region
   coords?: LatLng
 }
 

@@ -1,12 +1,15 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { stations as stationData } from 'src/content/stations'
-import { Stations, StationType } from 'src/types'
+import { resources as resourceData } from 'src/content/resources'
+import { IResource, ResourceType, Stations, StationType } from 'src/types'
 
 export const useMapStore = defineStore('map', () => {
   const stations = ref<Stations>(stationData)
   const year = ref<number>(1921)
   const stationTypes = ref<StationType[]>([])
+  const resources = ref<IResource[]>(resourceData)
+  const resourceTypes = ref<ResourceType[]>([])
 
   /**
    * Отфильтрованные станции
@@ -20,5 +23,11 @@ export const useMapStore = defineStore('map', () => {
     )
   )
 
-  return { stations, year, stationTypes, filteredStations }
+  const filteredResources = computed<IResource[]>(() =>
+    resources.value.filter(
+      (resource) => (resource.year ? resource.year <= year.value : true) && resourceTypes.value.includes(resource.type)
+    )
+  )
+
+  return { stations, year, stationTypes, resources, resourceTypes, filteredStations, filteredResources }
 })

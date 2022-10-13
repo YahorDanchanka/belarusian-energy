@@ -10,7 +10,8 @@
 import { onMounted, ref, watch } from 'vue'
 import L from 'leaflet'
 import { createIcon, getColorByStationType } from 'src/content/stations'
-import { IStation } from 'src/types'
+import { getColorByResourceType } from 'src/content/resources'
+import { IResource, IStation } from 'src/types'
 import { useMapStore } from 'stores/mapStore'
 import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
@@ -34,12 +35,24 @@ function addMarkerByStation(station: IStation): void {
   }
 }
 
+/** Добавляет маркер в группу маркеров, используя объект resource */
+function addMarkerByResource(resource: IResource): void {
+  if (resource.coords) {
+    markerGroup.addLayer(
+      L.marker(resource.coords, { icon: createIcon(getColorByResourceType(resource.type)) }).bindPopup(
+        `${resource.name} (г. ${resource.year ? resource.year : 'неизвестно'})`
+      )
+    )
+  }
+}
+
 /** Показывает маркеры на карте */
 function showMarkers(): void {
   if (!map) return
 
   markerGroup.clearLayers()
   mapStore.filteredStations.forEach((station) => addMarkerByStation(station))
+  mapStore.filteredResources.forEach((resource) => addMarkerByResource(resource))
   markerGroup.addTo(map)
 }
 
@@ -65,6 +78,13 @@ onMounted(() => {
 
 watch(
   () => mapStore.filteredStations,
+  () => {
+    showMarkers()
+  }
+)
+
+watch(
+  () => mapStore.filteredResources,
   () => {
     showMarkers()
   }

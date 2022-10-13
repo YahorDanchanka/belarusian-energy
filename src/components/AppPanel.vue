@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { Pagination, PaginationItemValue, StationType } from 'src/types'
+import { Pagination, PaginationItemValue, ResourceType, StationType } from 'src/types'
 import { useMapStore } from 'stores/mapStore'
 import BasePanel from 'components/BasePanel.vue'
 
@@ -81,6 +81,14 @@ function onPagination(type: 'resources' | 'stations', items: PaginationItemValue
     ) {
       mapStore.stationTypes.push(StationType.MiniThermal)
     }
+  } else {
+    /** Добавляем в фильтры все нужные станции, если выбран фильтр "Всё" */
+    if (items.includes('all')) {
+      mapStore.resourceTypes = [ResourceType.Wood, ResourceType.Turf, ResourceType.Coal, ResourceType.Oil]
+      return
+    }
+
+    mapStore.resourceTypes = <ResourceType[]>items.filter((paginationItem) => typeof paginationItem === 'number')
   }
 }
 </script>

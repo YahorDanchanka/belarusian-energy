@@ -1,4 +1,5 @@
-import { Info } from 'src/types'
+import { Info, IResource, Region, ResourceType, StationType } from 'src/types'
+import { latLng } from 'leaflet'
 
 export const resourceInfo: Info = [
   {
@@ -65,3 +66,111 @@ export const resourceInfo: Info = [
       'Солнечная энергетика — направление альтернативной энергетики, основанное на непосредственном использовании солнечного излучения для получения энергии в каком-либо виде. Солнечная энергетика использует возобновляемый источник энергии и является «экологически чистой», то есть не производящей вредных отходов во время активной фазы использования. Производство энергии с помощью солнечных электростанций хорошо согласовывается с концепцией распределённого производства энергии.<br> В 2021 году мощность солнечной энергетики составляла 269 МВт. Данная отрасль является очень потенциальной. На территории Беларуси есть станции в Молодечно, Речицу и Сморгони.',
   },
 ]
+
+export const resources: IResource[] = [
+  {
+    id: '1',
+    type: ResourceType.Wood,
+    name: 'Лельчицкое лесничество',
+    region: Region.Gomel,
+    coords: latLng(51.8326, 28.2999),
+  },
+  {
+    id: '2',
+    type: ResourceType.Wood,
+    name: 'Мухавецкое лесничество',
+    region: Region.Brest,
+    coords: latLng(52.0209, 23.8899),
+  },
+  {
+    id: '3',
+    type: ResourceType.Wood,
+    name: 'Куринское лесничество',
+    region: Region.Vitebsk,
+    coords: latLng(55.36772, 30.42302),
+  },
+  {
+    id: '4',
+    type: ResourceType.Wood,
+    name: 'Запольское лесничество',
+    region: Region.Mogilev,
+    coords: latLng(53.4866, 29.397),
+  },
+  {
+    id: '5',
+    type: ResourceType.Turf,
+    name: 'Заеловье',
+    region: Region.Brest,
+    coords: latLng(52.656374, 25.238654),
+  },
+  {
+    id: '6',
+    type: ResourceType.Turf,
+    name: 'Славное',
+    region: Region.Vitebsk,
+    coords: latLng(54.305598, 29.443082),
+  },
+  {
+    id: '7',
+    type: ResourceType.Turf,
+    name: 'Лошанский торфяной массив',
+    region: Region.Grodno,
+    coords: latLng(54.3273, 26.4341),
+  },
+  {
+    id: '8',
+    type: ResourceType.Oil,
+    name: 'Речицкое НМ',
+    year: 1985,
+    region: Region.Gomel,
+    coords: latLng(52.3617, 30.3916),
+  },
+  {
+    id: '9',
+    type: ResourceType.Coal,
+    name: 'Бриневское',
+    region: Region.Gomel,
+    coords: latLng(52.189963, 28.17863),
+  },
+  {
+    id: '10',
+    type: ResourceType.Coal,
+    name: 'Житковичское',
+    region: Region.Gomel,
+    coords: latLng(52.22061, 27.853733),
+  },
+  {
+    id: '11',
+    type: ResourceType.Coal,
+    name: 'Тонежское',
+    region: Region.Gomel,
+    coords: latLng(51.827496, 27.79018),
+  },
+  {
+    id: '12',
+    type: ResourceType.Coal,
+    name: 'Лельчицкое',
+    region: Region.Gomel,
+    coords: latLng(51.793686, 28.32187),
+  },
+]
+
+export function getColorByResourceType(resourceType: ResourceType): string {
+  let color = '#'
+
+  switch (resourceType) {
+    case ResourceType.Wood:
+      color += 'ffffff'
+      break
+    case ResourceType.Turf:
+      color += 'FF00E7'
+      break
+    case ResourceType.Coal:
+      color += 'B4FF00'
+      break
+    default:
+      color += 'FF8E00'
+  }
+
+  return color
+}
