@@ -17,6 +17,7 @@
     <BaseCollapse class="map__control page__collapse" v-model="showRules" caption="Правила">
       Определите тип станции по фото
     </BaseCollapse>
+    <AppStatBar class="map__control" />
     <PagePagination />
   </q-page>
 </template>
@@ -28,6 +29,7 @@ import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
+import AppStatBar from 'components/AppStatBar.vue'
 
 interface IOption {
   caption: string

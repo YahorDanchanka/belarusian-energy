@@ -18,6 +18,7 @@
       Переместите название станции к соответствующей метке
     </BaseCollapse>
     <PagePagination class="map__control" />
+    <AppStatBar class="map__control" />
   </q-page>
 </template>
 
@@ -37,6 +38,7 @@ import { dragMoveListener } from 'src/helpers'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
+import AppStatBar from 'components/AppStatBar.vue'
 
 interface ILocalStation extends IStation {
   isDroppableSuccess: boolean
