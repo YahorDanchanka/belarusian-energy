@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <swiper class="slider" direction="vertical" @swiper="onSwiper">
+    <swiper class="slider" direction="vertical" :modules="[Mousewheel]" :mousewheel="true" @swiper="onSwiper">
       <swiper-slide>
         <AppMainSlide class="fit" />
       </swiper-slide>
@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { Mousewheel } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Swiper as SwiperClass } from 'swiper/types'
 import 'swiper/css'
