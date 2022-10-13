@@ -34,7 +34,7 @@ import BaseButton from 'components/BaseButton.vue'
 
 const menu = ref<Menu>([
   { caption: 'Карта', to: { name: 'map' } },
-  { caption: 'Тесты', to: '/404' },
+  { caption: 'Тесты', to: { name: 'find-the-station' } },
 ])
 </script>
 
