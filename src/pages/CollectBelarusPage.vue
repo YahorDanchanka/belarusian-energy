@@ -1,5 +1,5 @@
 <template>
-  <q-page class="page">
+  <q-page class="page page_test">
     <img
       class="region"
       alt="Область Беларуси"
@@ -14,6 +14,7 @@
     <BaseCollapse class="page__collapse" v-model="showRules" caption="Правила">
       Перемещая области составьте карту Беларуси
     </BaseCollapse>
+    <PagePagination />
   </q-page>
 </template>
 
@@ -25,6 +26,7 @@ import { Regions, Region as RegionType } from 'src/types'
 import { getRegions } from 'src/content/regions'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
+import PagePagination from 'components/PagePagination.vue'
 
 const regions = ref<Regions>(getRegions())
 const showModal = ref<boolean>(false)

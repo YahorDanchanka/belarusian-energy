@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-lg row items-center justify-center">
+  <q-page class="q-pa-lg row items-center justify-center page_test">
     <div class="test">
       <div class="test__image" v-if="correctOption">
         <img class="test__image-img" :src="correctOptionImage" :alt="correctOption.caption" />
@@ -17,6 +17,7 @@
     <BaseCollapse class="map__control page__collapse" v-model="showRules" caption="Правила">
       Определите тип станции по фото
     </BaseCollapse>
+    <PagePagination />
   </q-page>
 </template>
 
@@ -26,6 +27,7 @@ import { cloneDeep, sample, shuffle, take, find } from 'lodash'
 import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
+import PagePagination from 'components/PagePagination.vue'
 
 interface IOption {
   caption: string

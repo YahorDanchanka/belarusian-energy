@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="page_test">
     <div class="map">
       <div ref="mapElem" class="fit"></div>
       <div class="map__control map__control_draggable-cards">
@@ -17,6 +17,7 @@
     <BaseCollapse class="map__control page__collapse" v-model="showRules" caption="Правила">
       Переместите название станции к соответствующей метке
     </BaseCollapse>
+    <PagePagination class="map__control" />
   </q-page>
 </template>
 
@@ -35,6 +36,7 @@ import { createIcon, getColorByStationType } from 'src/content/stations'
 import { dragMoveListener } from 'src/helpers'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
+import PagePagination from 'components/PagePagination.vue'
 
 interface ILocalStation extends IStation {
   isDroppableSuccess: boolean
