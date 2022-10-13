@@ -1,11 +1,20 @@
 <template>
-  <BasePagination
-    class="pagination"
-    ref="paginationComponent"
-    :style="paginationStyles"
-    :icons="icons"
-    @change="setSlide"
-  />
+  <div>
+    <img
+      class="slider__scroll-up-button"
+      src="~assets/images/hide-button.png"
+      alt="Кнопка скрыть"
+      :class="{ hidden: !isPaginationVisible }"
+      @click="swiperInstance.slideTo(0)"
+    />
+    <BasePagination
+      class="pagination"
+      ref="paginationComponent"
+      :style="paginationStyles"
+      :icons="icons"
+      @change="setSlide"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>
