@@ -23,8 +23,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, onUnmounted, ref, watch } from 'vue'
 import { cloneDeep, sample, shuffle, take, find } from 'lodash'
+import { useStatStore } from 'stores/statStore'
 import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
@@ -37,6 +38,8 @@ interface IOption {
   isSelect: boolean
   isCorrect: boolean
 }
+
+const statStore = useStatStore()
 
 const stations = [
   {
@@ -123,15 +126,27 @@ function selectOption(option: IOption): void {
   option.isSelect = !option.isSelect
 }
 
+onUnmounted(() => {
+  statStore.correctCount = 0
+  statStore.errorCount = 0
+})
+
 watch(selectedOption, () => {
   if (selectedOption.value) {
     const showModal = selectedOption.value === correctOption.value ? showSuccessModal : showFailureModal
     showModal.value = true
 
+    /** Подсчёт правильных и неправильных ответов */
+    if (selectedOption.value === correctOption.value) {
+      statStore.correctCount++
+    } else {
+      statStore.errorCount++
+    }
+
     setTimeout(() => {
       showModal.value = false
       options.value = getOptions()
-    }, 2500)
+    }, 1500)
   }
 })
 </script>

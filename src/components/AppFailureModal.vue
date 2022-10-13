@@ -3,6 +3,8 @@
     classes="modal-container"
     content-class="modal-content"
     :modelValue="modelValue"
+    :clickToClose="false"
+    :escToClose="false"
     @update:modelValue="(newValue) => $emit('update:modelValue', newValue)"
   >
     <img class="modal__icon" src="/images/icons/failure.png" alt="Иконка галочки" />
