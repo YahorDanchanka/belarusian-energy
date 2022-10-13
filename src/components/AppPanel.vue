@@ -98,17 +98,17 @@ function onPagination(type: 'resources' | 'stations', items: PaginationItemValue
 
 .panel-wrapper
   position: relative
-  background-color: red
 
 .panel-wrapper__panel
   transition: bottom 800ms
   position: absolute
   z-index: 402
+  width: 100%
 
 .panel-wrapper__control
   position: absolute
   width: 25px
-  right: 40px
+  right: 12px
   bottom: 10px
   transform: rotate(180deg)
   cursor: pointer
