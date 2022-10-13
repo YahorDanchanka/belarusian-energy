@@ -2,12 +2,6 @@
   <div class="collapse" :class="{ collapse_hidden: !modelValue }">
     <div class="collapse__header">
       {{ caption }}
-      <img
-        class="collapse__action-img"
-        src="~assets/images/expand.png"
-        alt="Иконка открытия"
-        @click="$emit('update:modelValue', !modelValue)"
-      />
     </div>
     <div class="collapse__content">
       <slot />
