@@ -11,7 +11,7 @@
         <AppFooterSlide class="fit" />
       </swiper-slide>
       <template v-slot:container-start>
-        <AppPagination :icons="paginationIcons" :swiperInstance="swiperInstance" />
+        <AppPagination v-if="swiperInstance" :icons="paginationIcons" :swiperInstance="swiperInstance" />
       </template>
     </swiper>
   </q-page>

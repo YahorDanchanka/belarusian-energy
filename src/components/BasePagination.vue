@@ -22,20 +22,24 @@ const props = defineProps<{ icons: Pagination; multiple?: boolean }>()
 const paginationElem = ref<HTMLElement>(null)
 const selected = ref<PaginationItemValue[]>([])
 
-defineExpose({ paginationElem })
+defineExpose({ paginationElem, updateState })
 
 function update(value: PaginationItemValue): void {
-  if (!props.multiple) {
-    selected.value = []
-  }
-
-  selected.value = knock(selected.value, value)
+  updateState(value)
 
   if (props.multiple) {
     emit('change', selected.value)
   } else {
     emit('change', selected.value[0])
   }
+}
+
+function updateState(value: PaginationItemValue): void {
+  if (!props.multiple) {
+    selected.value = []
+  }
+
+  selected.value = knock(selected.value, value)
 }
 </script>
 

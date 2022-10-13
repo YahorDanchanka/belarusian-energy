@@ -11,12 +11,15 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import { Swiper as SwiperClass } from 'swiper/types'
-import { Pagination } from 'src/types'
+import { Pagination, PaginationItemValue } from 'src/types'
 import BasePagination from 'components/BasePagination.vue'
 
 const props = defineProps<{ icons: Pagination; swiperInstance: SwiperClass }>()
 
-const paginationComponent = ref<{ paginationElem: HTMLElement } | null>(null)
+const paginationComponent = ref<{
+  paginationElem: HTMLElement
+  updateState: (value: PaginationItemValue) => void
+} | null>(null)
 const verticalIndent = ref<number>(0)
 
 const isPaginationVisible = computed<boolean>(
@@ -52,6 +55,10 @@ function setSlide(value: string | number): void {
 
   props.swiperInstance.slideTo(value + 1)
 }
+
+props.swiperInstance.on('slideChange', (swiper: SwiperClass) => {
+  paginationComponent.value?.updateState(swiper.activeIndex - 1)
+})
 
 onMounted(() => {
   if (paginationComponent.value) {
