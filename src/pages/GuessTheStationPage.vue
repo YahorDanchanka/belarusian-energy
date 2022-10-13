@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-lg row items-center justify-center page_test">
+  <q-page class="q-pa-lg row items-center justify-center page_test page_background_texture">
     <div class="test">
       <div class="test__image" v-if="correctOption">
         <img class="test__image-img" :src="correctOptionImage" :alt="correctOption.caption" />
