@@ -18,7 +18,6 @@
       Переместите название станции к соответствующей метке
     </BaseCollapse>
     <PagePagination class="map__control" />
-    <AppStatBar class="map__control" />
   </q-page>
 </template>
 
@@ -48,6 +47,7 @@ const $q = useQuasar()
 const mapStore = useMapStore()
 
 let map: L.Map | undefined
+const layerGroup: L.LayerGroup = L.layerGroup()
 const mapElem = ref<HTMLElement>(null)
 const stations = ref<ILocalStation[]>(getStations())
 const showModal = ref<boolean>(false)
@@ -77,6 +77,31 @@ function getStations(): ILocalStation[] {
   return result
 }
 
+function showMarkers(): void {
+  layerGroup.clearLayers()
+
+  stations.value.forEach((station) => {
+    if (!station.coords) return
+
+    const marker = L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }).addTo(map!)
+    const popup = L.popup({
+      offset: L.point(0, 80),
+      closeButton: false,
+      autoClose: false,
+      closeOnEscapeKey: false,
+      closeOnClick: false,
+    })
+      .setLatLng(<LatLngExpression>station.coords)
+      .addTo(map!)
+
+    layerGroup.addLayer(marker)
+    layerGroup.addLayer(popup)
+    layerGroup.addTo(map!)
+
+    popup.getElement()?.setAttribute('data-station-id', station.id)
+  })
+}
+
 onMounted(() => {
   map = L.map(mapElem.value, {
     zoomControl: false,
@@ -96,22 +121,7 @@ onMounted(() => {
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
   }
 
-  stations.value.forEach((station) => {
-    if (!station.coords) return
-
-    L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }).addTo(map!)
-    const popup = L.popup({
-      offset: L.point(0, 80),
-      closeButton: false,
-      autoClose: false,
-      closeOnEscapeKey: false,
-      closeOnClick: false,
-    })
-      .setLatLng(<LatLngExpression>station.coords)
-      .addTo(map!)
-
-    popup.getElement()?.setAttribute('data-station-id', station.id)
-  })
+  showMarkers()
 
   interact('.leaflet-popup').dropzone({
     accept: '.map__control_draggable-cards__draggable-card',
@@ -135,7 +145,13 @@ onMounted(() => {
 
         setTimeout(() => {
           showModal.value = false
-          window.location.reload()
+          stations.value = getStations()
+          showMarkers()
+          document.querySelectorAll('.map__control_draggable-cards__draggable-card').forEach((card: HTMLElement) => {
+            card.style.transform = 'translate(0, 0)'
+            card.removeAttribute('data-x')
+            card.removeAttribute('data-y')
+          })
         }, 2500)
       }
     },
