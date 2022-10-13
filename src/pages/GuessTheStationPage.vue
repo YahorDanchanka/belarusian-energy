@@ -2,7 +2,7 @@
   <q-page class="q-pa-lg row items-center justify-center">
     <div class="test">
       <div class="test__image" v-if="correctOption">
-        <img class="test__image-img" :src="correctOption.image" :alt="correctOption.caption" />
+        <img class="test__image-img" :src="correctOptionImage" :alt="correctOption.caption" />
       </div>
       <div class="test__options">
         <div class="test__col" v-for="option in options">
@@ -19,25 +19,73 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
-import { cloneDeep, sample, shuffle, some, take, find } from 'lodash'
+import { cloneDeep, sample, shuffle, take, find } from 'lodash'
 import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 
 interface IOption {
   caption: string
-  image: string
+  images: string[]
   isSelect: boolean
   isCorrect: boolean
 }
 
 const stations = [
-  { caption: 'ТЭЦ', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'ГЭС', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'ВЭС', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'ГРЭС', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'МТЭЦ', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'АЭС', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
-  { caption: 'СЭС', image: '/images/stations/nuclear.png', isSelect: false, isCorrect: false },
+  {
+    caption: 'ТЭЦ',
+    images: [
+      '/images/stations/thermal/1.jpg',
+      '/images/stations/thermal/2.jpg',
+      '/images/stations/thermal/3.jpg',
+      '/images/stations/thermal/4.jpg',
+    ],
+    isSelect: false,
+    isCorrect: false,
+  },
+  {
+    caption: 'ГЭС',
+    images: [
+      '/images/stations/hydro-power/1.jpg',
+      '/images/stations/hydro-power/2.jpg',
+      '/images/stations/hydro-power/3.jfif',
+      '/images/stations/hydro-power/4.jpg',
+    ],
+    isSelect: false,
+    isCorrect: false,
+  },
+  {
+    caption: 'ВЭС',
+    images: [
+      '/images/stations/wind/1.jpg',
+      '/images/stations/wind/2.jpg',
+      '/images/stations/wind/3.jpg',
+      '/images/stations/wind/4.jpg',
+    ],
+    isSelect: false,
+    isCorrect: false,
+  },
+  {
+    caption: 'АЭС',
+    images: [
+      '/images/stations/nuclear/1.jpg',
+      '/images/stations/nuclear/2.jpg',
+      '/images/stations/nuclear/3.jpg',
+      '/images/stations/nuclear/4.jpg',
+    ],
+    isSelect: false,
+    isCorrect: false,
+  },
+  {
+    caption: 'СЭС',
+    images: [
+      '/images/stations/solar/1.jpg',
+      '/images/stations/solar/2.jpg',
+      '/images/stations/solar/3.jpg',
+      '/images/stations/solar/4.jpg',
+    ],
+    isSelect: false,
+    isCorrect: false,
+  },
 ]
 
 const options = ref<IOption[]>(getOptions())
@@ -46,6 +94,7 @@ const showFailureModal = ref<boolean>(false)
 
 const correctOption = computed<IOption | undefined>(() => find(options.value, 'isCorrect'))
 const selectedOption = computed<IOption | undefined>(() => find(options.value, 'isSelect'))
+const correctOptionImage = computed<string>(() => (correctOption.value ? sample(correctOption.value.images) || '' : ''))
 
 function getOptions(): IOption[] {
   /** Выбираем 4 случайные типы станции */
