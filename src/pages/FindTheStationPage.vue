@@ -14,6 +14,9 @@
       </div>
     </div>
     <AppSuccessfulModal v-model="showModal" />
+    <BaseCollapse class="map__control page__collapse" v-model="showRules" caption="Правила">
+      Переместите название станции к соответствующей метке
+    </BaseCollapse>
   </q-page>
 </template>
 
@@ -31,6 +34,7 @@ import 'leaflet/dist/leaflet.css'
 import { createIcon, getColorByStationType } from 'src/content/stations'
 import { dragMoveListener } from 'src/helpers'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
+import BaseCollapse from 'components/BaseCollapse.vue'
 
 interface ILocalStation extends IStation {
   isDroppableSuccess: boolean
@@ -43,6 +47,7 @@ let map: L.Map | undefined
 const mapElem = ref<HTMLElement>(null)
 const stations = ref<ILocalStation[]>(getStations())
 const showModal = ref<boolean>(false)
+const showRules = ref<boolean>(true)
 
 const isFinish = computed(() => stations.value.every((station) => station.isDroppableSuccess))
 

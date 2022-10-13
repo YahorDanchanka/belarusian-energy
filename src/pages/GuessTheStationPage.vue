@@ -14,6 +14,9 @@
     </div>
     <AppSuccessfulModal v-model="showSuccessModal" />
     <AppFailureModal v-model="showFailureModal" />
+    <BaseCollapse class="map__control page__collapse" v-model="showRules" caption="Правила">
+      Определите тип станции по фото
+    </BaseCollapse>
   </q-page>
 </template>
 
@@ -22,6 +25,7 @@ import { computed, ref, watch } from 'vue'
 import { cloneDeep, sample, shuffle, take, find } from 'lodash'
 import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
+import BaseCollapse from 'components/BaseCollapse.vue'
 
 interface IOption {
   caption: string
@@ -91,6 +95,7 @@ const stations = [
 const options = ref<IOption[]>(getOptions())
 const showSuccessModal = ref<boolean>(false)
 const showFailureModal = ref<boolean>(false)
+const showRules = ref<boolean>(true)
 
 const correctOption = computed<IOption | undefined>(() => find(options.value, 'isCorrect'))
 const selectedOption = computed<IOption | undefined>(() => find(options.value, 'isSelect'))

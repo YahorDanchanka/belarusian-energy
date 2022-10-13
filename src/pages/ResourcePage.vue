@@ -35,6 +35,7 @@ import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'
 import AppFooterSlide from 'components/AppFooterSlide.vue'
+import BaseCollapse from 'components/BaseCollapse.vue'
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<Pagination>([

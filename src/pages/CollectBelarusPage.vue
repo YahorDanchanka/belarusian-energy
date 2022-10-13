@@ -11,6 +11,9 @@
       :key="region.id"
     />
     <AppSuccessfulModal v-model="showModal" />
+    <BaseCollapse class="page__collapse" v-model="showRules" caption="Правила">
+      Перемещая области составьте карту Беларуси
+    </BaseCollapse>
   </q-page>
 </template>
 
@@ -21,9 +24,11 @@ import { InteractEvent } from '@interactjs/types'
 import { Regions, Region as RegionType } from 'src/types'
 import { getRegions } from 'src/content/regions'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
+import BaseCollapse from 'components/BaseCollapse.vue'
 
 const regions = ref<Regions>(getRegions())
 const showModal = ref<boolean>(false)
+const showRules = ref<boolean>(true)
 
 /** Регионы расставлены правильно, если разница между текущими координатами и правильными координатами <= 10 */
 const isFinish = computed(() =>
