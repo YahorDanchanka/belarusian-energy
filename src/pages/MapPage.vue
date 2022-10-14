@@ -1,9 +1,11 @@
 <template>
-  <div class="map">
-    <div ref="mapElem" class="fit"></div>
-    <AppPanel class="map__control map__control_panel" />
-    <AppLegend class="map__control map__control_legend" />
-  </div>
+  <q-page>
+    <div class="map">
+      <div ref="mapElem" class="fit"></div>
+      <AppPanel class="map__control map__control_panel" />
+      <AppLegend class="map__control map__control_legend" />
+    </div>
+  </q-page>
 </template>
 
 <script lang="ts" setup>
