@@ -7,7 +7,7 @@
     >
       1
     </router-link>
-    <div class="pagination__item-decor">
+    <div class="pagination__item-decor" @click="router.push({ name: 'find-the-station' })">
       <div class="pagination__item-decor__text">Определить станцию</div>
     </div>
     <router-link
@@ -17,7 +17,7 @@
     >
       2
     </router-link>
-    <div class="pagination__item-decor">
+    <div class="pagination__item-decor" @click="router.push({ name: 'collect-belarus' })">
       <div class="pagination__item-decor__text">Сложить карту</div>
     </div>
     <router-link
@@ -27,11 +27,17 @@
     >
       3
     </router-link>
-    <div class="pagination__item-decor">
+    <div class="pagination__item-decor" @click="router.push({ name: 'guess-the-station' })">
       <div class="pagination__item-decor__text">Угадать тип</div>
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+</script>
 
 <style lang="sass" scoped>
 @import src/css/mixins
@@ -46,14 +52,18 @@
   position: absolute
   background: url(~assets/images/comment.svg) no-repeat center center / contain
   text-align: center
-  padding: 40px
   right: 0
   display: none
-  transform: translate(0, -50px)
+  width: 161px
+  height: 137px
+  transform: translate(-20px, -50px)
+
+.pagination__item-decor:nth-of-type(1) .pagination__item-decor__text
+  top: 55px
 
 .pagination__item-decor__text
   position: relative
-  top: 20px
+  top: 70px
   font-size: 1.2rem
 
 .pagination__item:last-of-type
