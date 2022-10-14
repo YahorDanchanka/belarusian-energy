@@ -18,6 +18,7 @@
       Переместите название станции к соответствующей метке
     </BaseCollapse>
     <PagePagination class="map__control" />
+    <GoHomeButton>На главную</GoHomeButton>
   </q-page>
 </template>
 
@@ -38,6 +39,7 @@ import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
 import AppStatBar from 'components/AppStatBar.vue'
+import GoHomeButton from 'components/GoHomeButton.vue'
 
 interface ILocalStation extends IStation {
   isDroppableSuccess: boolean
@@ -240,4 +242,8 @@ onMounted(() => {
   touch-action: none
   user-select: none
   transform: translate(0px, 0px)
+
+.map__control_button
+  bottom: auto
+  top: 15px
 </style>

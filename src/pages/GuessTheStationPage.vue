@@ -19,6 +19,7 @@
     </BaseCollapse>
     <AppStatBar class="map__control" />
     <PagePagination />
+    <GoHomeButton>На главную</GoHomeButton>
   </q-page>
 </template>
 
@@ -31,6 +32,7 @@ import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
 import AppStatBar from 'components/AppStatBar.vue'
+import GoHomeButton from 'components/GoHomeButton.vue'
 
 interface IOption {
   caption: string

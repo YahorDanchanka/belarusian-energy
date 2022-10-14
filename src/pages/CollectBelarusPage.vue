@@ -15,6 +15,7 @@
       Перемещая области составьте карту Беларуси
     </BaseCollapse>
     <PagePagination />
+    <GoHomeButton>На главную</GoHomeButton>
   </q-page>
 </template>
 
@@ -27,6 +28,7 @@ import { getRegions } from 'src/content/regions'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
+import GoHomeButton from 'components/GoHomeButton.vue'
 
 const regions = ref<Regions>(getRegions())
 const showModal = ref<boolean>(false)
