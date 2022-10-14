@@ -102,6 +102,10 @@ const menu = ref<Menu>([
   width: 630px
   font-style: italic
   font-weight: 500
+  display: none
+
+  @media (min-height: 710px)
+    display: block
 
   +sm-block
     width: 100%
