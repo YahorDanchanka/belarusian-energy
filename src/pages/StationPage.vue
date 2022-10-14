@@ -35,6 +35,9 @@ import AppMainSlide from 'components/AppMainSlide.vue'
 import BaseInfo from 'components/BaseInfo.vue'
 import AppPagination from 'components/AppPagination.vue'
 import AppFooterSlide from 'components/AppFooterSlide.vue'
+import { useMapStore } from 'stores/mapStore'
+
+const mapStore = useMapStore()
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<Pagination>([
@@ -47,5 +50,11 @@ const paginationIcons = ref<Pagination>([
 
 function onSwiper(instance: SwiperClass): void {
   swiperInstance.value = instance
+
+  if (mapStore.isFirstVisit) {
+    mapStore.isFirstVisit = false
+  } else {
+    swiperInstance.value?.slideTo(1)
+  }
 }
 </script>

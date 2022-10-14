@@ -10,6 +10,7 @@ export const useMapStore = defineStore('map', () => {
   const stationTypes = ref<StationType[]>([])
   const resources = ref<IResource[]>(resourceData)
   const resourceTypes = ref<ResourceType[]>([])
+  const isFirstVisit = ref<boolean>(true)
 
   /**
    * Отфильтрованные станции
@@ -29,5 +30,5 @@ export const useMapStore = defineStore('map', () => {
     )
   )
 
-  return { stations, year, stationTypes, resources, resourceTypes, filteredStations, filteredResources }
+  return { stations, year, stationTypes, resources, resourceTypes, filteredStations, filteredResources, isFirstVisit }
 })
