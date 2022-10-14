@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pa-lg row items-center justify-center page_test page_background_texture">
     <div class="test">
-      <div class="test__image" v-if="correctOption">
+      <div class="test__image" v-if="correctOption && correctOptionImage">
         <img class="test__image-img" :src="correctOptionImage" :alt="correctOption.caption" />
       </div>
       <div class="test__options">
@@ -24,7 +24,7 @@
 
 <script lang="ts" setup>
 import { computed, onUnmounted, ref, watch } from 'vue'
-import { cloneDeep, sample, shuffle, take, find } from 'lodash'
+import { cloneDeep, sample, shuffle, take, find, minBy, set } from 'lodash'
 import { useStatStore } from 'stores/statStore'
 import AppFailureModal from 'components/AppFailureModal.vue'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
@@ -34,21 +34,21 @@ import AppStatBar from 'components/AppStatBar.vue'
 
 interface IOption {
   caption: string
-  images: string[]
+  images: { src: string; usedCount: number }[]
   isSelect: boolean
   isCorrect: boolean
 }
 
 const statStore = useStatStore()
 
-const stations = [
+const stations: IOption[] = [
   {
     caption: 'ТЭЦ',
     images: [
-      '/images/stations/thermal/1.jpg',
-      '/images/stations/thermal/2.jpg',
-      '/images/stations/thermal/3.jpg',
-      '/images/stations/thermal/4.jpg',
+      { src: '/images/stations/thermal/1.jpg', usedCount: 0 },
+      { src: '/images/stations/thermal/2.jpg', usedCount: 0 },
+      { src: '/images/stations/thermal/3.jpg', usedCount: 0 },
+      { src: '/images/stations/thermal/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -56,10 +56,10 @@ const stations = [
   {
     caption: 'ГЭС',
     images: [
-      '/images/stations/hydro-power/1.jpg',
-      '/images/stations/hydro-power/2.jpg',
-      '/images/stations/hydro-power/3.jfif',
-      '/images/stations/hydro-power/4.jpg',
+      { src: '/images/stations/hydro-power/1.jpg', usedCount: 0 },
+      { src: '/images/stations/hydro-power/2.jpg', usedCount: 0 },
+      { src: '/images/stations/hydro-power/3.jfif', usedCount: 0 },
+      { src: '/images/stations/hydro-power/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -67,10 +67,10 @@ const stations = [
   {
     caption: 'ВЭС',
     images: [
-      '/images/stations/wind/1.jpg',
-      '/images/stations/wind/2.jpg',
-      '/images/stations/wind/3.jpg',
-      '/images/stations/wind/4.jpg',
+      { src: '/images/stations/wind/1.jpg', usedCount: 0 },
+      { src: '/images/stations/wind/2.jpg', usedCount: 0 },
+      { src: '/images/stations/wind/3.jpg', usedCount: 0 },
+      { src: '/images/stations/wind/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -78,10 +78,10 @@ const stations = [
   {
     caption: 'АЭС',
     images: [
-      '/images/stations/nuclear/1.jpg',
-      '/images/stations/nuclear/2.jpg',
-      '/images/stations/nuclear/3.jpg',
-      '/images/stations/nuclear/4.jpg',
+      { src: '/images/stations/nuclear/1.jpg', usedCount: 0 },
+      { src: '/images/stations/nuclear/2.jpg', usedCount: 0 },
+      { src: '/images/stations/nuclear/3.jpg', usedCount: 0 },
+      { src: '/images/stations/nuclear/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -89,16 +89,17 @@ const stations = [
   {
     caption: 'СЭС',
     images: [
-      '/images/stations/solar/1.jpg',
-      '/images/stations/solar/2.jpg',
-      '/images/stations/solar/3.jpg',
-      '/images/stations/solar/4.jpg',
+      { src: '/images/stations/solar/1.jpg', usedCount: 0 },
+      { src: '/images/stations/solar/2.jpg', usedCount: 0 },
+      { src: '/images/stations/solar/3.jpg', usedCount: 0 },
+      { src: '/images/stations/solar/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
   },
 ]
 
+const correctOptionImage = ref<string>()
 const options = ref<IOption[]>(getOptions())
 const showSuccessModal = ref<boolean>(false)
 const showFailureModal = ref<boolean>(false)
@@ -106,15 +107,27 @@ const showRules = ref<boolean>(true)
 
 const correctOption = computed<IOption | undefined>(() => find(options.value, 'isCorrect'))
 const selectedOption = computed<IOption | undefined>(() => find(options.value, 'isSelect'))
-const correctOptionImage = computed<string>(() => (correctOption.value ? sample(correctOption.value.images) || '' : ''))
 
 function getOptions(): IOption[] {
   /** Выбираем 4 случайные типы станции */
-  const randOptions: IOption[] = take(shuffle(cloneDeep(stations)), 4)
+  const randOptions: IOption[] = take(shuffle(correctOptionImage.value ? options.value : cloneDeep(stations)), 4)
   /** Выбираем случайный тип станции из массива выше, который помечаем правильным */
   const randOption: IOption = sample(randOptions)!
 
+  /** Сбрасываем значения */
+  randOptions.forEach((option) => {
+    option.isCorrect = false
+    option.isSelect = false
+  })
+
+  /** Выбираем изображение */
+  const image = <{ src: string; usedCount: number }>minBy(randOption.images, 'usedCount')
+  correctOptionImage.value = image.src
+
+  /** Устанавливаем счетчики */
+  image.usedCount++
   randOption.isCorrect = true
+
   return randOptions
 }
 
