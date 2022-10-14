@@ -4,7 +4,7 @@
       <img class="footer-slide__map-img" src="~assets/images/belarus-map.png" alt="Карта Беларуси" />
     </div>
     <div class="footer-slide__button">
-      <router-link to="/404">
+      <router-link :to="{ name: 'map' }">
         <img class="footer-slide__button-img" src="~assets/images/map-button.png" alt="Кнопка перехода на карту" />
       </router-link>
     </div>
