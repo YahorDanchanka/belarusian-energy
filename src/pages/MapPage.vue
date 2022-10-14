@@ -4,6 +4,9 @@
       <div ref="mapElem" class="fit"></div>
       <AppPanel class="map__control map__control_panel" />
       <AppLegend class="map__control map__control_legend" />
+      <router-link class="map__control map__control_button" :to="{ name: 'find-the-station' }"
+        >Проверь себя</router-link
+      >
     </div>
   </q-page>
 </template>
@@ -118,6 +121,35 @@ watch(
 
   +xs-block
     width: 310px
+    top: 70px
     right: 50%
     margin-right: -155px
+
+.map__control_button
+  display: block
+  text-decoration: none
+  width: 202px
+  font-size: 1.5rem
+  color: #2F2F2E
+  right: 30px
+  bottom: 10px
+  background: #D9D9D9
+  border-radius: 20px
+  padding: 14px 8px
+  text-align: center
+
+  +md-block
+    left: 30px
+    top: 30px
+    bottom: auto
+    right: auto
+
+  +sm-block
+    font-size: 1rem
+    width: 130px
+
+  +xs-block
+    width: calc(100% - 30px)
+    left: 15px
+    top: 10px
 </style>
