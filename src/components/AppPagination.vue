@@ -73,6 +73,8 @@ onMounted(() => {
   if (paginationComponent.value) {
     const height = paginationComponent.value.paginationElem.offsetHeight
     verticalIndent.value = -(height / 2)
+
+    paginationComponent.value?.updateState(activeIndex.value - 1)
   }
 })
 </script>
