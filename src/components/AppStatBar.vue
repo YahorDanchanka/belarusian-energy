@@ -1,8 +1,8 @@
 <template>
   <div class="stat-bar">
-    <img src="/images/icons/success.png" alt="Успех" />
+    <img src="~assets/images/icons/success.png" alt="Успех" />
     {{ statStore.correctCount }}/{{ statStore.errorCount }}
-    <img src="/images/icons/failure.png" alt="Успех" />
+    <img src="~assets/images/icons/failure.png" alt="Успех" />
   </div>
 </template>
 

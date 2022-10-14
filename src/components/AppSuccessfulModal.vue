@@ -7,7 +7,7 @@
     :escToClose="false"
     @update:modelValue="(newValue) => $emit('update:modelValue', newValue)"
   >
-    <img class="modal__icon" src="/images/icons/success.png" alt="Иконка галочки" />
+    <img class="modal__icon" src="~assets/images/icons/success.png" alt="Иконка галочки" />
     Правильно!
   </vue-final-modal>
 </template>

@@ -3,29 +3,29 @@ import { Info } from 'src/types'
 export const futureInfo: Info = [
   {
     caption: 'Цель',
-    iconUrl: '/images/future/notebook.png',
-    titleIconUrl: '/images/future/check.png',
+    iconUrl: './images/future/notebook.png',
+    titleIconUrl: './images/future/check.png',
     content:
       'Замена старого оборудования и повышение мощностей на электрических станций и котельных, направленных на достижение основных показателей развития энергосистемы, энергетической безопасности Республики Беларусь',
   },
   {
     caption: 'Задачи',
-    iconUrl: '/images/future/notebook2.png',
-    titleIconUrl: '/images/future/algorithm.png',
+    iconUrl: './images/future/notebook2.png',
+    titleIconUrl: './images/future/algorithm.png',
     content:
       '<ul><li>Развитие и модернизация электрических сетей на базе внедрения новых технологий и вывода из эксплуатации устаревшего энергетического оборудования с учетом ввода АЭС</li><li>Развитие источников поставки энергетического оборудования</li><li>Обеспечение благоприятных условий для жизнедеятельности граждан и использования энергетических ресурсов</li></ul>',
   },
   {
     caption: 'Планы',
-    iconUrl: '/images/future/analysis.png',
-    titleIconUrl: '/images/future/business-strategy.png',
+    iconUrl: './images/future/analysis.png',
+    titleIconUrl: './images/future/business-strategy.png',
     content:
       '<ul><li>Уменьшение использования природного газа</li><li>Снижение расхода топлива на производство электрической энергии</li><li>Увеличение использования возобновляемых источников энергии</li><li>Ввод в эксплуатацию второго блока АЭС</li><li>Снижение выбросов в окружающую среду СО2</li></ul>',
   },
   {
     caption: 'Направления',
-    iconUrl: '/images/future/strategy.png',
-    titleIconUrl: '/images/future/direction.png',
+    iconUrl: './images/future/strategy.png',
+    titleIconUrl: './images/future/direction.png',
     content:
       '<ul><li>сбалансированное развитие электрических сетей на основе удаления устаревшего оборудования с учетом ввода АЭС</li><li>Модернизация источников генерации электричества</li><li>Улучшение структуры управления энергетической системой</li></ul>',
   },

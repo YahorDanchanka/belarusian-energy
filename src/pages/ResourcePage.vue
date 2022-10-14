@@ -9,8 +9,8 @@
           class="fit q-pa-lg"
           :caption="resource.caption"
           :content="resource.content"
-          :iconUrl="resource.iconUrl"
-          :titleIconUrl="resource.titleIconUrl"
+          :iconUrl="`.${resource.iconUrl}`"
+          :titleIconUrl="`.${resource.titleIconUrl}`"
         />
       </swiper-slide>
       <swiper-slide>
@@ -39,15 +39,15 @@ import BaseCollapse from 'components/BaseCollapse.vue'
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<Pagination>([
-  { iconUrl: '/images/pagination/wood.png', value: 0 },
-  { iconUrl: '/images/pagination/dirt.png', value: 1 },
-  { iconUrl: '/images/pagination/ugol.png', value: 2 },
-  { iconUrl: '/images/pagination/neft.png', value: 3 },
-  { iconUrl: '/images/pagination/gas.png', value: 4 },
-  { iconUrl: '/images/pagination/water.png', value: 5 },
-  { iconUrl: '/images/pagination/wind.png', value: 6 },
-  { iconUrl: '/images/pagination/uran.png', value: 7 },
-  { iconUrl: '/images/pagination/sun.png', value: 8 },
+  { iconUrl: './images/pagination/wood.png', value: 0 },
+  { iconUrl: './images/pagination/dirt.png', value: 1 },
+  { iconUrl: './images/pagination/ugol.png', value: 2 },
+  { iconUrl: './images/pagination/neft.png', value: 3 },
+  { iconUrl: './images/pagination/gas.png', value: 4 },
+  { iconUrl: './images/pagination/water.png', value: 5 },
+  { iconUrl: './images/pagination/wind.png', value: 6 },
+  { iconUrl: './images/pagination/uran.png', value: 7 },
+  { iconUrl: './images/pagination/sun.png', value: 8 },
 ])
 
 function onSwiper(instance: SwiperClass): void {

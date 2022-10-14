@@ -45,10 +45,10 @@ const stations: IOption[] = [
   {
     caption: 'ТЭЦ',
     images: [
-      { src: '/images/stations/thermal/1.jpg', usedCount: 0 },
-      { src: '/images/stations/thermal/2.jpg', usedCount: 0 },
-      { src: '/images/stations/thermal/3.jpg', usedCount: 0 },
-      { src: '/images/stations/thermal/4.jpg', usedCount: 0 },
+      { src: './images/stations/thermal/1.jpg', usedCount: 0 },
+      { src: './images/stations/thermal/2.jpg', usedCount: 0 },
+      { src: './images/stations/thermal/3.jpg', usedCount: 0 },
+      { src: './images/stations/thermal/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -56,10 +56,10 @@ const stations: IOption[] = [
   {
     caption: 'ГЭС',
     images: [
-      { src: '/images/stations/hydro-power/1.jpg', usedCount: 0 },
-      { src: '/images/stations/hydro-power/2.jpg', usedCount: 0 },
-      { src: '/images/stations/hydro-power/3.jfif', usedCount: 0 },
-      { src: '/images/stations/hydro-power/4.jpg', usedCount: 0 },
+      { src: './images/stations/hydro-power/1.jpg', usedCount: 0 },
+      { src: './images/stations/hydro-power/2.jpg', usedCount: 0 },
+      { src: './images/stations/hydro-power/3.jfif', usedCount: 0 },
+      { src: './images/stations/hydro-power/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -67,10 +67,10 @@ const stations: IOption[] = [
   {
     caption: 'ВЭС',
     images: [
-      { src: '/images/stations/wind/1.jpg', usedCount: 0 },
-      { src: '/images/stations/wind/2.jpg', usedCount: 0 },
-      { src: '/images/stations/wind/3.jpg', usedCount: 0 },
-      { src: '/images/stations/wind/4.jpg', usedCount: 0 },
+      { src: './images/stations/wind/1.jpg', usedCount: 0 },
+      { src: './images/stations/wind/2.jpg', usedCount: 0 },
+      { src: './images/stations/wind/3.jpg', usedCount: 0 },
+      { src: './images/stations/wind/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -78,10 +78,10 @@ const stations: IOption[] = [
   {
     caption: 'АЭС',
     images: [
-      { src: '/images/stations/nuclear/1.jpg', usedCount: 0 },
-      { src: '/images/stations/nuclear/2.jpg', usedCount: 0 },
-      { src: '/images/stations/nuclear/3.jpg', usedCount: 0 },
-      { src: '/images/stations/nuclear/4.jpg', usedCount: 0 },
+      { src: './images/stations/nuclear/1.jpg', usedCount: 0 },
+      { src: './images/stations/nuclear/2.jpg', usedCount: 0 },
+      { src: './images/stations/nuclear/3.jpg', usedCount: 0 },
+      { src: './images/stations/nuclear/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,
@@ -89,10 +89,10 @@ const stations: IOption[] = [
   {
     caption: 'СЭС',
     images: [
-      { src: '/images/stations/solar/1.jpg', usedCount: 0 },
-      { src: '/images/stations/solar/2.jpg', usedCount: 0 },
-      { src: '/images/stations/solar/3.jpg', usedCount: 0 },
-      { src: '/images/stations/solar/4.jpg', usedCount: 0 },
+      { src: './images/stations/solar/1.jpg', usedCount: 0 },
+      { src: './images/stations/solar/2.jpg', usedCount: 0 },
+      { src: './images/stations/solar/3.jpg', usedCount: 0 },
+      { src: './images/stations/solar/4.jpg', usedCount: 0 },
     ],
     isSelect: false,
     isCorrect: false,

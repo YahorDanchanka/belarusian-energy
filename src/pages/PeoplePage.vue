@@ -32,8 +32,8 @@ import BasePerson from 'components/BasePerson.vue'
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<Pagination>([
-  { iconUrl: '/images/pagination/arrow-up.svg', value: 'prev' },
-  { iconUrl: '/images/pagination/arrow-down.svg', value: 'next' },
+  { iconUrl: './images/pagination/arrow-up.svg', value: 'prev' },
+  { iconUrl: './images/pagination/arrow-down.svg', value: 'next' },
 ])
 
 function onSwiper(instance: SwiperClass): void {

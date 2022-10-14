@@ -27,19 +27,19 @@ import BasePanel from 'components/BasePanel.vue'
 const mapStore = useMapStore()
 
 const resourceIcons = ref<Pagination>([
-  { iconUrl: '/images/pagination/wood.png', value: 0 },
-  { iconUrl: '/images/pagination/dirt.png', value: 1 },
-  { iconUrl: '/images/pagination/ugol.png', value: 2 },
-  { iconUrl: '/images/pagination/neft.png', value: 3 },
-  { iconUrl: '/images/pagination/all.png', value: 'all' },
+  { iconUrl: './images/pagination/wood.png', value: 0 },
+  { iconUrl: './images/pagination/dirt.png', value: 1 },
+  { iconUrl: './images/pagination/ugol.png', value: 2 },
+  { iconUrl: './images/pagination/neft.png', value: 3 },
+  { iconUrl: './images/pagination/all.png', value: 'all' },
 ])
 const stationIcons = ref<Pagination>([
-  { iconUrl: '/images/pagination/uran.png', value: StationType.Nuclear },
-  { iconUrl: '/images/pagination/wind.png', value: StationType.Wind },
-  { iconUrl: '/images/pagination/water.png', value: StationType.Hydroelectric },
-  { iconUrl: '/images/pagination/gas.png', value: StationType.Thermal },
-  { iconUrl: '/images/pagination/sun.png', value: StationType.Solar },
-  { iconUrl: '/images/pagination/all.png', value: 'all' },
+  { iconUrl: './images/pagination/uran.png', value: StationType.Nuclear },
+  { iconUrl: './images/pagination/wind.png', value: StationType.Wind },
+  { iconUrl: './images/pagination/water.png', value: StationType.Hydroelectric },
+  { iconUrl: './images/pagination/gas.png', value: StationType.Thermal },
+  { iconUrl: './images/pagination/sun.png', value: StationType.Solar },
+  { iconUrl: './images/pagination/all.png', value: 'all' },
 ])
 const isPanelVisible = ref<boolean>(true)
 

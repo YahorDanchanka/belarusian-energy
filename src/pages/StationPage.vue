@@ -9,8 +9,8 @@
           class="fit q-pa-lg"
           :caption="station.caption"
           :content="station.content"
-          :iconUrl="station.iconUrl"
-          :titleIconUrl="station.titleIconUrl"
+          :iconUrl="`.${station.iconUrl}`"
+          :titleIconUrl="`.${station.titleIconUrl}`"
         />
       </swiper-slide>
       <swiper-slide>
@@ -38,11 +38,11 @@ import AppFooterSlide from 'components/AppFooterSlide.vue'
 
 const swiperInstance = ref<SwiperClass>()
 const paginationIcons = ref<Pagination>([
-  { iconUrl: '/images/pagination/uran.png', value: 0 },
-  { iconUrl: '/images/pagination/wind.png', value: 1 },
-  { iconUrl: '/images/pagination/water.png', value: 2 },
-  { iconUrl: '/images/pagination/gas.png', value: 3 },
-  { iconUrl: '/images/pagination/sun.png', value: 4 },
+  { iconUrl: './images/pagination/uran.png', value: 0 },
+  { iconUrl: './images/pagination/wind.png', value: 1 },
+  { iconUrl: './images/pagination/water.png', value: 2 },
+  { iconUrl: './images/pagination/gas.png', value: 3 },
+  { iconUrl: './images/pagination/sun.png', value: 4 },
 ])
 
 function onSwiper(instance: SwiperClass): void {

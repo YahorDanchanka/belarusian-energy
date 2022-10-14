@@ -20,10 +20,10 @@ import { Social } from 'src/types'
 import BaseFooter from 'components/BaseFooter.vue'
 
 const links = ref<Social>([
-  { icon: '/images/icons/telegram.png', href: 'https://t.me/ggaekinf' },
-  { icon: '/images/icons/vk.png', href: 'https://vk.com/ggaek' },
-  { icon: '/images/icons/instagram.png', href: 'https://www.instagram.com/ggaek_gomel/' },
-  { icon: '/images/icons/web-link.png', href: 'http://ggaek.by/' },
+  { icon: './images/icons/telegram.png', href: 'https://t.me/ggaekinf' },
+  { icon: './images/icons/vk.png', href: 'https://vk.com/ggaek' },
+  { icon: './images/icons/instagram.png', href: 'https://www.instagram.com/ggaek_gomel/' },
+  { icon: './images/icons/web-link.png', href: 'http://ggaek.by/' },
 ])
 </script>
 

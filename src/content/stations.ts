@@ -718,7 +718,7 @@ export function getColorByStationType(stationType: StationType): string {
 const usedIcons: Icon<IconOptions>[] = []
 
 export function createIcon(color: string): Icon {
-  const iconUrl = `/images/markers/${color.slice(1)}.png`
+  const iconUrl = `./images/markers/${color.slice(1)}.png`
 
   const foundIcon = usedIcons.find((usedIcon) => usedIcon.options.iconUrl === iconUrl)
 
