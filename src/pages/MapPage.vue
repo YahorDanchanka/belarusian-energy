@@ -156,6 +156,10 @@ watch(
   left: 30px
   bottom: 10px
 
+  +md-block
+    top: 100px
+    bottom: auto
+
   +sm-block
     font-size: 1rem
     width: 130px
