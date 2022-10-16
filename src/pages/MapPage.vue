@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import L from 'leaflet'
 import { createIcon, getColorByStationType } from 'src/content/stations'
 import { getColorByResourceType } from 'src/content/resources'
@@ -82,6 +82,11 @@ onMounted(() => {
 
   map.removeControl(map.attributionControl)
   showMarkers()
+})
+
+onUnmounted(() => {
+  mapStore.stationTypes = []
+  mapStore.resourceTypes = []
 })
 
 watch(
