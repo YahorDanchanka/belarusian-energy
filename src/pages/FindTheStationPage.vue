@@ -23,10 +23,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useQuasar } from 'quasar'
 import L, { LatLngExpression } from 'leaflet'
-import { filter, random, sample, chunk, find } from 'lodash'
+import { chunk, filter, find, random, sample } from 'lodash'
 import interact from 'interactjs'
 import { InteractEvent } from '@interactjs/types'
 import { IStation, Region } from 'src/types'
@@ -38,7 +38,6 @@ import { dragMoveListener } from 'src/helpers'
 import AppSuccessfulModal from 'components/AppSuccessfulModal.vue'
 import BaseCollapse from 'components/BaseCollapse.vue'
 import PagePagination from 'components/PagePagination.vue'
-import AppStatBar from 'components/AppStatBar.vue'
 import GoHomeButton from 'components/GoHomeButton.vue'
 
 interface ILocalStation extends IStation {
@@ -179,6 +178,10 @@ onMounted(() => {
       move: dragMoveListener,
     },
   })
+})
+
+onUnmounted(() => {
+  mapStore.isFirstVisit = true
 })
 </script>
 

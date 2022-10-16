@@ -87,6 +87,7 @@ onMounted(() => {
 onUnmounted(() => {
   mapStore.stationTypes = []
   mapStore.resourceTypes = []
+  mapStore.isFirstVisit = true
 })
 
 watch(
