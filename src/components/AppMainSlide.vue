@@ -58,6 +58,11 @@ const menu = ref<Menu>([
   margin-top: -249.5px
 
   +md-block
+    width: 440px
+    height: 368.388px
+    margin-top: -184.194px
+
+  @media (max-width: 1100px)
     display: none
 
 .main-slide__header
