@@ -1,5 +1,5 @@
 <template>
-  <q-page class="page page_test page_background_texture">
+  <q-page class="page page_test page_background_texture overflow-hidden">
     <img
       class="region"
       alt="Область Беларуси"
