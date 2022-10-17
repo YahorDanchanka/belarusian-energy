@@ -102,16 +102,19 @@ const menu = ref<Menu>([
   width: 630px
   font-style: italic
   font-weight: 500
-  display: none
+  display: block
 
-  @media (min-height: 710px)
-    display: block
+  @media (max-height: 650px)
+    display: none
+
+  @media (max-height: 710px)
+    bottom: 80px
 
   +sm-block
     width: 100%
     bottom: 150px
 
-  +xs-block
+  +sm-block
     display: none
 
 $buttonXIndent: 53px
