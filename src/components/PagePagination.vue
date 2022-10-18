@@ -57,6 +57,8 @@ const router = useRouter()
   width: 161px
   height: 137px
   transform: translate(-20px, -50px)
+  pointer-events: none
+  cursor: default
 
 .pagination__item-decor:nth-of-type(1) .pagination__item-decor__text
   top: 55px
