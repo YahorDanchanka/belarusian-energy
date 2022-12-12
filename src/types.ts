@@ -68,6 +68,8 @@ export interface IStation {
   owner?: string
   river?: string
   coords?: LatLng
+  images?: string[]
+  content?: string
 }
 
 export interface IResource {

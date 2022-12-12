@@ -16,6 +16,7 @@
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { $vfm } from 'vue-final-modal'
 import L from 'leaflet'
 import { createIcon, getColorByStationType } from 'src/content/stations'
 import { getColorByResourceType } from 'src/content/resources'
@@ -25,6 +26,7 @@ import 'leaflet-providers'
 import 'leaflet/dist/leaflet.css'
 import AppPanel from 'components/AppPanel.vue'
 import AppLegend from 'components/AppLegend.vue'
+import MarkerModal from 'components/MarkerModal.vue'
 
 const mapStore = useMapStore()
 
@@ -36,9 +38,14 @@ const markerGroup: L.LayerGroup = L.layerGroup()
 function addMarkerByStation(station: IStation): void {
   if (station.coords) {
     markerGroup.addLayer(
-      L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }).bindPopup(
-        `${station.name} (г. ${station.year ? station.year : 'неизвестно'})`
-      )
+      L.marker(station.coords, { icon: createIcon(getColorByStationType(station.type)) }).on('click', () => {
+        $vfm.show({
+          component: MarkerModal,
+          bind: {
+            station,
+          },
+        })
+      })
     )
   }
 }
