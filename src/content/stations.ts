@@ -175,10 +175,10 @@ export const stations: Stations = [
     owner: 'Белэнерго',
     coords: latLng(54.095671, 28.353571),
     images: [
-      '/images/zhodinskaya/Jodino_sm-300x264.jpg',
-      '/images/zhodinskaya/i (1).webp',
-      '/images/zhodinskaya/i.webp',
-      '/images/zhodinskaya/9-2-300x225.jpg',
+      './images/zhodinskaya/Jodino_sm-300x264.jpg',
+      './images/zhodinskaya/i (1).webp',
+      './images/zhodinskaya/i.webp',
+      './images/zhodinskaya/9-2-300x225.jpg',
     ],
     content: `
       <p>Жодинская ТЭЦ (теплоэлектроцентраль) является филиалом Минского Республиканского унитарного предприятия электроэнергетики «Минскэнерго».</p>
