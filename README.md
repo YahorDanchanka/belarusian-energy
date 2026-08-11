@@ -1,6 +1,6 @@
 # Belarusian Energy (belarusian-energy)
 
-A Quasar Project
+A Quasar Project https://yahordanchanka.github.io/belarusian-energy
 
 ## Install the dependencies
 ```bash
